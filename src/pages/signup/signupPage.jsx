@@ -3,6 +3,7 @@ import "./signupPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import HOST from "../../utils/baseUrl";
 import { notification } from "antd";
+import Gweta from '../../assets/Gweta.png'
 
 const SignUpPage = () => {
   const [api, contextHolder] = notification.useNotification();
@@ -59,7 +60,7 @@ const SignUpPage = () => {
     <div className="signUpdiv">
       {contextHolder}
       <Link to="/">
-        <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
+        <img className="Aclabsolute" src={Gweta} alt="Gweta Rangu" />
       </Link>
       <div>
         <form

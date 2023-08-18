@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./otppage.css";
 import HOST from "../../utils/baseUrl";
+import Gweta from '../../assets/Gweta.png'
 const OtpPage = () => {
   const navigate = useNavigate();
   let [one, setOne] = useState("");
@@ -37,7 +38,7 @@ const OtpPage = () => {
   return (
     <div className="OTPPAGE">
       <Link to="/">
-        <img className="Aclabsolute" src="Images/ACEyellow.png" alt="acelogo" />
+        <img className="Aclabsolute" src={Gweta} alt="Gweta Rangu" />
       </Link>
       <form className="otpform" onSubmit={(event) => handleSubmit(event)}>
         <div className="info">
