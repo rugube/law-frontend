@@ -135,7 +135,7 @@ const SignUpPage = () => {
 
           <div className="social-message">
             <div className="line">-</div>
-            <p className="message">Login with social accounts</p>
+            <p className="message">Login with Google</p>
             <div className="line">-</div>
           </div>
           <div className="SocialIcons">
