@@ -17,6 +17,11 @@ const SignUpPage = () => {
     });
   };
 
+  const google = () => {
+    localStorage.clear();
+    window.open(`${HOST}/auth/google`, "_self");
+  };
+
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [phone, setPhone] = useState("");
@@ -139,7 +144,7 @@ const SignUpPage = () => {
             <div className="line">-</div>
           </div>
           <div className="SocialIcons">
-            <div>
+            <div onClick={google}>
               <img
                 style={{ width: "30px" }}
                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
