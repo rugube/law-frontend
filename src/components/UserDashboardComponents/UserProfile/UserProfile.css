@@ -38,11 +38,11 @@
   border-radius: 50px;
   font-size: 18px;
   border: none;
-  background-color: #ffd41d;
+  background-color: #EBDACC;
   font-weight: 600;
 }
 .BigBAPBTN:hover {
-  background-color: #f9e93f;
+  background-color: #EBDACC;
 }
 .UserProfileSecond {
   padding: 10px;
@@ -52,5 +52,5 @@
   color: black;
 }
 .UserProfileSecond > a:hover {
-  color: #ffd41d;
+  color: #EBDACC;
 }

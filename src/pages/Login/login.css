@@ -33,7 +33,7 @@
   padding: 10px 20px;
 }
 .signInBtn:hover {
-  background-color: #fdd94c !important;
+  background-color: #EBDACC !important;
 }
 .loginpage input {
   padding-left: 12px !important;
@@ -206,7 +206,7 @@
 }
 .ant-modal-footer button:hover {
   box-shadow: none !important;
-  color: #fdd94c !important;
+  color: #EBDACC !important;
   border-color: #B2784A !important;
 }
 .ant-modal-footer .ant-btn-primary {
