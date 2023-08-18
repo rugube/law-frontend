@@ -38,8 +38,7 @@ const UserProfile = ({ UserData }) => {
             </div>
           </div>
           <p style={{ color: "grey", fontSize: "12px" }}>
-            ACE is managed by a volunteer board of directors. <br /> We Welcome
-            you to our Legal Services
+            We Welcome you to our Gweta Rangu, our one-stop shop for all your Legal Services
           </p>
         </div>
         <div className="UserProfileRight" data-aos="fade-left">
