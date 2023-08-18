@@ -1,6 +1,6 @@
 import * as React from 'react';
-import './style.css';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+
 
 function randomID(len) {
   let result = '';
@@ -15,60 +15,43 @@ function randomID(len) {
   return result;
 }
 
-// get token
-function generateToken(tokenServerUrl: string, userID: string) {
-  // Obtain the token interface provided by the App Server
-  return fetch(
-    `${tokenServerUrl}/access_token?userID=${userID}&expired_ts=7200`,
-    {
-      method: 'GET',
-    }
-  ).then((res) => res.json());
-}
-
 export function getUrlParams(
-  url: string = window.location.href
-): URLSearchParams {
+  url = window.location.href
+) {
   let urlStr = url.split('?')[1];
   return new URLSearchParams(urlStr);
 }
 
 export default function App() {
-  const roomID = getUrlParams().get('roomID') || randomID(5);
-  const userID = randomID(5);
-  const userName = randomID(5);
-  let myMeeting = async (element: HTMLDivElement) => {
-    // generate token
-    const token = await generateToken(
-      'https://nextjs-token.vercel.app/api',
-      userID
-    );
-    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForProduction(
-      1484647939,
-      token,
-      roomID,
-      userID,
-      userName
-    );
-    // create instance object from token
-    const zp = ZegoUIKitPrebuilt.create(kitToken);
-    // start the call
-    zp.joinRoom({
-      container: element,
-      sharedLinks: [
-        {
-          name: 'Personal link',
-          url:
-            window.location.origin +
-            window.location.pathname +
-            '?roomID=' +
-            roomID,
+      const roomID = getUrlParams().get('roomID') || randomID(5);
+      let myMeeting = async (element) => {
+     // generate Kit Token
+      const appID = 1675037019;
+      const serverSecret = "7940e8d348ae90d085fc2f132c905080";
+      const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  randomID(5),  randomID(5));
+
+
+     // Create instance object from Kit Token.
+      const zp = ZegoUIKitPrebuilt.create(kitToken);
+      // start the call
+      zp.joinRoom({
+        container: element,
+        sharedLinks: [
+          {
+            name: 'Personal link',
+            url:
+             window.location.protocol + '//' + 
+             window.location.host + window.location.pathname +
+              '?roomID=' +
+              roomID,
+          },
+        ],
+        scenario: {
+          mode: ZegoUIKitPrebuilt.GroupCall, // To implement 1-on-1 calls, modify the parameter here to [ZegoUIKitPrebuilt.OneONoneCall].
         },
-      ],
-      scenario: {
-        mode: ZegoUIKitPrebuilt.GroupCall, // To implement 1-on-1 calls, modify the parameter here to [ZegoUIKitPrebuilt.OneONoneCall].
-      },
-    });
+      });
+
+
   };
 
   return (
