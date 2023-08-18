@@ -147,14 +147,6 @@ const SignUpPage = () => {
               />
               <label>Continue With Google</label>
             </div>
-            <div>
-              <img
-                style={{ width: "27px" }}
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/640px-Facebook_Logo_%282019%29.png"
-                alt="icon"
-              />
-              <label>Continue With Facebook</label>
-            </div>
           </div>
         </form>
       </div>
