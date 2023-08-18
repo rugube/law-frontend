@@ -50,7 +50,7 @@ input[type="radio"] {
   height: 18px;
   margin-right: 10px;
 
-  accent-color: rgb(255, 204, 0);
+  accent-color: #EBDACC;
   vertical-align: middle;
 }
 input[type="radio"]:focus {
