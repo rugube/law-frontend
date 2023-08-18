@@ -85,7 +85,7 @@ const Login = () => {
         password,
       };
       signIN(data);
-    } else if (value === "Lawyer Email") {
+    } else if (value === "Lawyer Email Address") {
       handleLawyerLogin();
     } else {
       if (email === "admin@gmail.com" && password === "admin") {
