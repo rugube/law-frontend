@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
-import Gweta from '../../../assets/Gweta.png'
+import Gweta from '../../assets/Gweta.png'
+
 const Footer = () => {
   return (
     <div className="FooterParent">
@@ -18,6 +19,8 @@ const Footer = () => {
         <div>
           <p className="footerpara">
             © 2023 <span className="footergoldenpara">Gweta Rangu</span>{" "}
+            <br /> Designed and Developed by <br />
+            <span className="footergoldenpara">BOF</span>
           </p>
         </div>
       </div>
