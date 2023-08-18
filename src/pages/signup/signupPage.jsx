@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import HOST from "../../utils/baseUrl";
 import { notification } from "antd";
 import Gweta from '../../assets/Gweta.png'
+import { AuthContext } from "../../context/AuthContext/AuthState";
 
 const SignUpPage = () => {
   const [api, contextHolder] = notification.useNotification();
@@ -77,7 +78,7 @@ const SignUpPage = () => {
         >
           <h1 className="RegisterTitle">Register</h1>
           <p style={{ color: "grey", fontSize: "13px" }}>
-            Signup to Gweta Rangu
+            Signup to Gweta Rangu 
           </p>
           <input
             onChange={(event) => {

@@ -15,7 +15,7 @@
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .slot-btn:hover{
-    background: rgba(235, 235, 67, 0.753);
+    background: #ebdacc;
     color: black;
 }
 

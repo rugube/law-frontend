@@ -1,15 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ForgotModal from "./ForgotModal";
 import HOST from "../../utils/baseUrl.js";
-
 import { notification } from "antd";
-import { UserContext } from "../../context/Admin_page/userFunction/userState";
 import { AuthContext } from "../../context/AuthContext/AuthState";
 
 const Login = () => {
-  const { UserDetails, setUserDetails } = useContext(UserContext);
-  const { Auth, setAuth } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
   const [api, contextHolder] = notification.useNotification();
 
   const FopenNotification = (msg, desc) => {
@@ -19,26 +16,20 @@ const Login = () => {
       placement: "top",
     });
   };
-  const SopenNotification = (msg, desc) => {
-    api.success({
-      message: msg,
-      description: desc,
-      placement: "top",
-    });
-  };
 
   const [value, setValue] = useState("User Email");
   const [imgpath, setImgPath] = useState("Images/Signup/avatar.png");
-  let [email, setEmail] = useState("");
-
-  let [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const handleClick = (str) => {
     setValue(str);
     if (str === "User Email") setImgPath("Images/Signup/avatar.png");
-    else if (str === "Lawyer ID") setImgPath("Images/Signup/lawyerpng.jpg");
+    else if (str === "Lawyer Email") setImgPath("Images/Signup/lawyerpng.jpg");
     else setImgPath("Images/Signup/adminpng.png");
   };
+
   const signIN = async (data) => {
     const response = await fetch(`${HOST}/user/login`, {
       method: "POST",
@@ -51,16 +42,38 @@ const Login = () => {
     const Data = await response.json();
     if (Data.status === "success") {
       localStorage.setItem("token", Data.token);
-      setUserDetails(Data.userData);
-      SopenNotification("Login Success", "Succcessfully logged in.");
       setAuth(true);
+      FopenNotification("Login Success", "Successfully logged in.");
       setTimeout(() => {
-        setAuth(true);
-        console.log("Login Success");
         navigate("/userdashboard");
       }, 1000);
     } else {
       FopenNotification("Invalid Credentials", "Enter valid account details.");
+    }
+  };
+
+  const handleLawyerLogin = async () => {
+    const data = {
+      email,
+      password,
+    };
+
+    const response = await fetch(`${HOST}/lawyer/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const responseData = await response.json();
+    if (responseData.status === "success") {
+      localStorage.setItem("token", responseData.token);
+      setAuth(true);
+      FopenNotification("Lawyer Login Success", "Successfully logged in as a lawyer.");
+      navigate("/lawyerdashboard");
+    } else {
+      FopenNotification("Invalid Credentials", "Enter valid lawyer account details.");
     }
   };
 
@@ -72,20 +85,23 @@ const Login = () => {
         password,
       };
       signIN(data);
-    } else if (value === "Lawyer ID") {
-      console.log("Hello from lawyer");
+    } else if (value === "Lawyer Email") {
+      handleLawyerLogin();
     } else {
       if (email === "admin@gmail.com" && password === "admin") {
-        SopenNotification("Welcome Back Admin.", "Succcessfully logged in.");
         setAuth(true);
         navigate("/admin");
+      } else {
+        FopenNotification("Invalid Credentials", "Enter valid admin account details.");
       }
     }
   };
+
   const google = () => {
     localStorage.clear();
     window.open(`${HOST}/auth/google`, "_self");
   };
+
   return (
     <div className="form-container">
       {contextHolder}
@@ -101,9 +117,9 @@ const Login = () => {
           User
         </label>
         <label
-          onClick={() => handleClick("Lawyer ID")}
+          onClick={() => handleClick("Lawyer Email")}
           style={{
-            backgroundColor: value !== "Lawyer ID" ? "#fafafa" : "#B2784A",
+            backgroundColor: value !== "Lawyer Email" ? "#fafafa" : "#B2784A",
             border: "none",
           }}
         >
@@ -123,7 +139,7 @@ const Login = () => {
         <img src={imgpath} alt="" />
       </div>
       <div>
-        <form className="form" onSubmit={(event) => handleSubmit(event)}>
+        <form className="form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="username" className="fontweightfive">
               {value}
@@ -133,7 +149,7 @@ const Login = () => {
               type="text"
               name="username"
               id="username"
-              placeholder="User Name"
+              placeholder="Email"
               required
             />
           </div>
