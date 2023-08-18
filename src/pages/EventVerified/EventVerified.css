@@ -20,7 +20,7 @@
 }
 .signInBtn,
 .BookAppBtntwo {
-  background-color: #ffd41f !important;
+  background-color: #B2784A !important;
   width: 100%;
   font-size: 19px;
   border-radius: 9px;
@@ -52,7 +52,7 @@
 }
 .EventVerifiedCard input:hover,
 .EventVerifiedCard input:focus {
-  border: 1px solid #ffd41f !important;
+  border: 1px solid #B2784A !important;
   box-shadow: none !important;
   outline: none !important;
 }

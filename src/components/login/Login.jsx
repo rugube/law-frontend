@@ -94,7 +94,7 @@ const Login = () => {
         <label
           onClick={() => handleClick("User Email")}
           style={{
-            backgroundColor: value !== "User Email" ? "#fafafa" : "#ffd41f",
+            backgroundColor: value !== "User Email" ? "#fafafa" : "#B2784A",
             border: "none",
           }}
         >
@@ -103,7 +103,7 @@ const Login = () => {
         <label
           onClick={() => handleClick("Lawyer ID")}
           style={{
-            backgroundColor: value !== "Lawyer ID" ? "#fafafa" : "#ffd41f",
+            backgroundColor: value !== "Lawyer ID" ? "#fafafa" : "#B2784A",
             border: "none",
           }}
         >
@@ -112,7 +112,7 @@ const Login = () => {
         <label
           onClick={() => handleClick("Admin ID")}
           style={{
-            backgroundColor: value !== "Admin ID" ? "#fafafa" : "#ffd41f",
+            backgroundColor: value !== "Admin ID" ? "#fafafa" : "#B2784A",
             border: "none",
           }}
         >

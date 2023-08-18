@@ -24,7 +24,7 @@
   height: 100vh;
 }
 .signInBtn {
-  background-color: #ffd41f !important;
+  background-color: #B2784A !important;
   width: 100%;
   font-size: 19px;
   border-radius: 9px;
@@ -50,7 +50,7 @@
 }
 .form-container input:hover,
 .form-container input:focus {
-  border: 1px solid #ffd41f !important;
+  border: 1px solid #B2784A !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -150,7 +150,7 @@
 }
 .SocialIcons > div:hover {
   cursor: pointer !important;
-  border: 1px solid #ffd41f !important;
+  border: 1px solid #B2784A !important;
 }
 .SocialIcons img {
   margin-right: 5px;
@@ -190,7 +190,7 @@
 
 .InputModalt:focus,
 .InputModalt:hover {
-  border: 1px solid #ffd41f !important;
+  border: 1px solid #B2784A !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -207,10 +207,10 @@
 .ant-modal-footer button:hover {
   box-shadow: none !important;
   color: #fdd94c !important;
-  border-color: #ffd41f !important;
+  border-color: #B2784A !important;
 }
 .ant-modal-footer .ant-btn-primary {
-  background-color: #ffd41f !important;
+  background-color: #B2784A !important;
 }
 .ant-modal-footer .ant-btn-primary:hover {
   color: black !important;

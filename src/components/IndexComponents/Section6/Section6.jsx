@@ -10,7 +10,7 @@ const Section6 = () => {
       <div className="SecSixParent">
         <div className="SecSixLeft" data-aos="fade-up">
           <h1 style={{ fontSize: "47px", transform: "translateY(-30px)" }}>
-            <label style={{ color: "#ffd41f", fontSize: "49px" }}>
+            <label style={{ color: "#B2784A", fontSize: "49px" }}>
               80 years
             </label>{" "}
             <br /> of Experience <br /> in Legal Solutions.

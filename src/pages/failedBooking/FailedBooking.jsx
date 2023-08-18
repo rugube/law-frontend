@@ -18,7 +18,7 @@ const FailedBooking = () => {
         subTitle="Sorry, Something went wrong."
         extra={
           <Button
-            style={{ background: "#ffd41f", color: "black !important" }}
+            style={{ background: "#B2784A", color: "black !important" }}
             info
           >
             Back Home

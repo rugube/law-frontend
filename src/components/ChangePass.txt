@@ -187,7 +187,7 @@ body {
 
 .main-input:focus {
   outline: none;
-  border-color: #ffd41f;
+  border-color: #B2784A;
 }
 
 .lebal-email {
@@ -207,7 +207,7 @@ body {
 .main-input:valid ~ .lebal-email {
   top: -20px;
   font-size: 14px;
-  color: #ffd41f;
+  color: #B2784A;
 }
 
 .highlight-span {
@@ -227,7 +227,7 @@ body {
 
 @keyframes input-focus {
   from {
-    background: #ffd41f;
+    background: #B2784A;
   }
   to {
     width: 185px;
@@ -242,7 +242,7 @@ body {
   font-size: 18px;
   font-weight: 600;
   border: 0;
-  background-color: #ffd41f;
+  background-color: #B2784A;
 }
 #AceLogo {
   filter: saturate(2);

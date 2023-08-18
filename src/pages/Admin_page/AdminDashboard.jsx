@@ -27,7 +27,7 @@ const AdminDashboard = () => {
               <MoneyCollectOutlined
                 style={{
                   padding: 8,
-                  color: "#ffd41f",
+                  color: "#B2784A",
                   fontSize: 60,
                   background: "#fafafa",
                   borderRadius: "50%",
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
               <UserAddOutlined
                 style={{
                   padding: 8,
-                  color: "#ffd41f",
+                  color: "#B2784A",
                   fontSize: 60,
                   background: "#fafafa",
                   borderRadius: "50%",
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
               <ShoppingCartOutlined
                 style={{
                   padding: 8,
-                  color: "#ffd41f",
+                  color: "#B2784A",
                   fontSize: 60,
                   background: "#fafafa",
                   borderRadius: "50%",
@@ -73,7 +73,7 @@ const AdminDashboard = () => {
               <DashboardFilled
                 style={{
                   padding: 8,
-                  color: "#ffd41f",
+                  color: "#B2784A",
                   fontSize: 60,
                   background: "#fafafa",
                   borderRadius: "50%",
@@ -88,7 +88,7 @@ const AdminDashboard = () => {
               <DashboardFilled
                 style={{
                   padding: 8,
-                  color: "#ffd41f",
+                  color: "#B2784A",
                   fontSize: 60,
                   background: "#fafafa",
                   borderRadius: "50%",
