@@ -46,6 +46,11 @@ const UserProfile = ({ UserData }) => {
             <button className="BigBAPBTN">Book an Appointment + </button>
           </Link>
         </div>
+        <div className="UserProfileRight" data-aos="fade-left">
+          <Link to="/videocalls">
+            <button className="BigBAPBTN">Start Video Call </button>
+          </Link>
+        </div>
       </div>
       <center>
         <hr style={{ width: "80%" }} />

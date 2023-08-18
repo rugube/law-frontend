@@ -134,7 +134,7 @@ const EventVerified = () => {
             </button>
             <br />
             <button className="BookAppBtntwo" onClick={handleBook}>
-              Book an Appoinetment
+              Book an Appointtment
             </button>
             <label className="allrightIEIEIEIIEEI">
               © All Copyrights reserved
