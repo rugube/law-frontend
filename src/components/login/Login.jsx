@@ -189,7 +189,7 @@ const Login = () => {
               src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
               alt="icon"
             />
-            <label>Continue With Google</label>
+            <label>Google</label>
           </div>
         </div>
         <p className="signup">
