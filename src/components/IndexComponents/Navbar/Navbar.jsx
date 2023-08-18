@@ -21,8 +21,8 @@ const Navbar = () => {
         <NavLink to="/">
           <img
             style={{ width: "100%" }}
-            src="Images/IndexPageImages/ACE1.png"
-            alt="acelogz"
+            src="Images/IndexPageImages/Gweta.png"
+            alt="Gweta Rangu"
           />
         </NavLink>
       </div>
