@@ -1,5 +1,16 @@
 import * as React from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+import { navigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext/AuthState';
+
+function VideoCallPage() {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    navigate('/login');
+    return null;
+  }
+
 
 
 function randomID(len) {
