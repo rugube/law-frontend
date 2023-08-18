@@ -77,7 +77,7 @@ const SignUpPage = () => {
         >
           <h1 className="RegisterTitle">Register</h1>
           <p style={{ color: "grey", fontSize: "13px" }}>
-            Signup to Ace Legal Services
+            Signup to Gweta Rangu
           </p>
           <input
             onChange={(event) => {
