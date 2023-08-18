@@ -1,7 +1,7 @@
 // VideoCallPage.js
 import React from 'react';
 import { navigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext/AuthState';
+import { AuthContext } from '../../context/AuthContext/AuthState';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 
 function randomID(len) {
@@ -21,7 +21,7 @@ function getUrlParams(url = window.location.href) {
 }
 
 function VideoCallPage() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = AuthContext();
 
   if (!isAuthenticated) {
     navigate('/login');
