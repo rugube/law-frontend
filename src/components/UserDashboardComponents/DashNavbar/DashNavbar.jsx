@@ -37,7 +37,7 @@ const DashNavbar = ({ UserData }) => {
         <NavLink to="/">
           <img
             style={{ width: "100%" }}
-            src="Images/IndexPageImages/ACE1.png"
+            src="Images/IndexPageImages/Gweta.png"
             alt="acelogz"
           />
         </NavLink>
