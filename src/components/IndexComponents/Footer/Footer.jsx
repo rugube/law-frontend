@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import Gweta from '../../assets/Gweta.png'
+import Gweta from '../../../assets/Gweta.png'
 
 const Footer = () => {
   return (
