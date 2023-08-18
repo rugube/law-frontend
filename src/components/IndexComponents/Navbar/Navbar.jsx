@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import Gweta from '../../../../public/Images/Gweta.png'
+import Gweta from '../../../assets/Gweta.png'
 const Navbar = () => {
   const [navx, setnavx] = useState(false);
   const handleNav = () => {
