@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import Gweta from '../../../../public/Images/Gweta.png'
 const Navbar = () => {
   const [navx, setnavx] = useState(false);
   const handleNav = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
         <NavLink to="/">
           <img
             style={{ width: "100%" }}
-            src="Images/IndexPageImages/Gweta.png"
+            src={Gweta}
             alt="Gweta Rangu"
           />
         </NavLink>
