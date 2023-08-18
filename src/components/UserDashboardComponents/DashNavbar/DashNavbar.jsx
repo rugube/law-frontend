@@ -3,6 +3,7 @@ import "./DashNavbar.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import HOST from "../../../utils/baseUrl";
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
+import Gweta from '../../../assets/Gweta.png'
 const DashNavbar = ({ UserData }) => {
   const [email, setEmail] = useState("User Email");
   const [name, setName] = useState("User Name");
@@ -37,7 +38,7 @@ const DashNavbar = ({ UserData }) => {
         <NavLink to="/">
           <img
             style={{ width: "100%" }}
-            src="Images/IndexPageImages/Gweta.png"
+            src={Gweta}
             alt="Gweta Rangu"
           />
         </NavLink>
