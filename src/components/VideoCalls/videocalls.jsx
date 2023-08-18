@@ -1,36 +1,47 @@
-// VideoCallPage.js
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext/AuthState';
+import React, { useContext, useEffect } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+import { AuthContext } from "../../context/AuthContext/AuthState"; // Import your AuthContext
+import { useNavigate } from "react-router-dom";
 
-function randomID(len) {
-  let result = '';
-  var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP';
-  var maxPos = chars.length;
-  len = len || 5;
-  for (var i = 0; i < len; i++) {
-    result += chars.charAt(Math.floor(Math.random() * maxPos));
-  }
-  return result;
-}
-
-function getUrlParams(url = window.location.href) {
-  let urlStr = url.split('?')[1];
-  return new URLSearchParams(urlStr);
-}
-
-function VideoCallPage() {
-  const { isAuthenticated } = AuthContext();
+export default function App() {
+  const { Auth, setAuth } = useContext(AuthContext); // Use the AuthContext
   const navigate = useNavigate();
 
-  if (!isAuthenticated) {
-    navigate('/login');
-    return null;
+  // Use useEffect to handle the authentication logic
+  useEffect(() => {
+    setTimeout(() => {
+      setAuth((prev) => {
+        if (prev === false) {
+          navigate("/unAuthenticated"); // Redirect if not authenticated
+          return false;
+        }
+        return true;
+      });
+    }, 2000);
+  }, [Auth, setAuth, navigate]);
+
+  // Your function to generate a random ID
+  function randomID(len) {
+    let result = '';
+    var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP';
+    var maxPos = chars.length;
+    len = len || 5;
+    for (var i = 0; i < len; i++) {
+      result += chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    return result;
   }
 
+  // Your function to get URL parameters
+  function getUrlParams(url = window.location.href) {
+    let urlStr = url.split('?')[1];
+    return new URLSearchParams(urlStr);
+  }
+
+  // Get the room ID from URL parameters or generate a random one
   const roomID = getUrlParams().get('roomID') || randomID(5);
 
+  // Function to handle the video call
   const myMeeting = async (element) => {
     const appID = 1675037019;
     const serverSecret = "7940e8d348ae90d085fc2f132c905080";
@@ -52,9 +63,12 @@ function VideoCallPage() {
     });
   };
 
+  // Render the video call container
   return (
-    <div className="myCallContainer" ref={myMeeting} style={{ width: '100vw', height: '100vh' }}></div>
+    <div
+      className="myCallContainer"
+      ref={myMeeting}
+      style={{ width: '100vw', height: '100vh' }}
+    ></div>
   );
 }
-
-export default VideoCallPage;

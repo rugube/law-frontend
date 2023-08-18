@@ -42,7 +42,7 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/addlawyer' element={<AddLawyerForm />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
-        <ProtectedRoute path='/videocalls' element={<VideoCalls/>} />
+        <Route path='/videocalls' element={<VideoCalls/>} />
       </Routes>
     </div>
   );
