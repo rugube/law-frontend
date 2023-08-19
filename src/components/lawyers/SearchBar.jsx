@@ -19,7 +19,6 @@ const SearchBar = ({ query, setQuery, setOption }) => {
   
   return (
     <div className="search-bar">
-      <h1>Meet our Lawyers</h1>
 
       <div className="select">
         <span className="search-by">Search By : </span>
