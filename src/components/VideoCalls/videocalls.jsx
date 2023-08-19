@@ -1,24 +1,24 @@
 import React, { useContext, useEffect } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
-import { AuthContext } from "../../context/AuthContext/AuthState"; // Import your AuthContext
-import { useNavigate } from "react-router-dom";
+// import { AuthContext } from "../../context/AuthContext/AuthState"; // Import your AuthContext
+// import { useNavigate } from "react-router-dom";
 
 export default function App() {
-  const { Auth, setAuth } = useContext(AuthContext); // Use the AuthContext
-  const navigate = useNavigate();
+  // const { Auth, setAuth } = useContext(AuthContext); // Use the AuthContext
+  // const navigate = useNavigate();
 
-  // Use useEffect to handle the authentication logic
-  useEffect(() => {
-    setTimeout(() => {
-      setAuth((prev) => {
-        if (prev === false) {
-          navigate("/unAuthenticated"); // Redirect if not authenticated
-          return false;
-        }
-        return true;
-      });
-    }, 2000);
-  }, [Auth, setAuth, navigate]);
+  // // Use useEffect to handle the authentication logic
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setAuth((prev) => {
+  //       if (prev === false) {
+  //         navigate("/unAuthenticated"); // Redirect if not authenticated
+  //         return false;
+  //       }
+  //       return true;
+  //     });
+  //   }, 2000);
+  // }, [Auth, setAuth, navigate]);
 
   // Your function to generate a random ID
   function randomID(len) {
