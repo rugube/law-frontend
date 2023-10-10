@@ -11,6 +11,7 @@
     "@videosdk.live/react-sdk": "^0.1.75",
     "@zegocloud/zego-uikit-prebuilt": "^1.8.10",
     "antd": "^5.3.3",
+    "axios": "^1.5.1",
     "chart.js": "^4.2.1",
     "dayjs": "^1.11.7",
     "faker": "^6.6.6",
