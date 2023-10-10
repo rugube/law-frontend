@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Input, Button, Select } from "antd";
 import axios from "axios";
-import HOST from "../../utils/baseUrl";
+import HOST from "../../../utils/baseUrl";
 
 const { TextArea } = Input;
 const { Option } = Select;
