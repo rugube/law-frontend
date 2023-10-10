@@ -47,7 +47,7 @@ const UserProfile = ({ UserData }) => {
           </Link>
         </div>
         <div className="UserProfileRight" data-aos="fade-left">
-          <Link to="/videocalls">
+          <Link to="/jobs">
             <button className="BigBAPBTN">Start Video Call </button>
           </Link>
         </div>
