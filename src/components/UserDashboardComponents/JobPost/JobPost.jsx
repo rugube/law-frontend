@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, Input, Button, Select } from "antd";
 import axios from "axios";
+import HOST from "../../../utils/baseUrl";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -12,7 +13,7 @@ const JobPost = ({ UserData, notification }) => {
 
   const postJob = async () => {
     try {
-      const response = await axios.post("/jobs", {
+      const response = await axios.post(`${HOST}/jobs`, {
         userId: UserData._id, // Assuming UserData contains user information
         serviceType,
         description: jobDescription,

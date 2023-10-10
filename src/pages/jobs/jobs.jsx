@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { notification } from "antd";
 import { AuthContext } from "../../context/AuthContext/AuthState";
 import Loading from "../../components/AdminCompo/Loading";
+import HOST from "../../utils/baseUrl";
 
 const Jobs = () => {
   const [api, contextHolder] = notification.useNotification();
