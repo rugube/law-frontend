@@ -12,7 +12,7 @@ const JobPost = ({ UserData, notification }) => {
 
   const postJob = async () => {
     try {
-      const response = await axios.post("/api/jobs", {
+      const response = await axios.post("/jobs", {
         userId: UserData._id, // Assuming UserData contains user information
         serviceType,
         description: jobDescription,
