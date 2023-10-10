@@ -1,4 +1,5 @@
 import React from "react";
+import { Card, Button, List } from "antd";
 
 const JobProposals = ({ jobs, proposals, setProposals, notification, fnotification }) => {
   // Function to accept a proposal
@@ -28,23 +29,25 @@ const JobProposals = ({ jobs, proposals, setProposals, notification, fnotificati
     <div>
       <h2>Job Proposals</h2>
       {jobs.map((job) => (
-        <div key={job.id}>
-          <h3>{job.title}</h3>
+        <Card key={job.id} title={job.title} style={{ marginBottom: "16px" }}>
           <p>{job.description}</p>
           <h4>Proposals:</h4>
-          <ul>
-            {proposals.map((proposal) => (
-              <li key={proposal.id}>
+          <List
+            dataSource={proposals}
+            renderItem={(proposal) => (
+              <List.Item>
                 {proposal.jobId === job.id ? (
                   <div>
-                    {proposal.description}
-                    <button onClick={() => acceptProposal(job.id, proposal.id)}>Accept Proposal</button>
+                    <p>{proposal.description}</p>
+                    <Button type="primary" onClick={() => acceptProposal(job.id, proposal.id)}>
+                      Accept Proposal
+                    </Button>
                   </div>
                 ) : null}
-              </li>
-            ))}
-          </ul>
-        </div>
+              </List.Item>
+            )}
+          />
+        </Card>
       ))}
     </div>
   );

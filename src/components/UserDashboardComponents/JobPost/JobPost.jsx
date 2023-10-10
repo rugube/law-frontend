@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Card, Input, Button } from "antd";
+
+const { TextArea } = Input;
 
 const JobPost = ({ UserData, jobs, setJobs, notification }) => {
   const [jobTitle, setJobTitle] = useState("");
@@ -26,18 +29,21 @@ const JobPost = ({ UserData, jobs, setJobs, notification }) => {
   return (
     <div>
       <h2>Post a Job</h2>
-      <input
-        type="text"
-        placeholder="Job Title"
-        value={jobTitle}
-        onChange={(e) => setJobTitle(e.target.value)}
-      />
-      <textarea
-        placeholder="Job Description"
-        value={jobDescription}
-        onChange={(e) => setJobDescription(e.target.value)}
-      />
-      <button onClick={postJob}>Post Job</button>
+      <Card>
+        <Input
+          placeholder="Job Title"
+          value={jobTitle}
+          onChange={(e) => setJobTitle(e.target.value)}
+        />
+        <TextArea
+          placeholder="Job Description"
+          value={jobDescription}
+          onChange={(e) => setJobDescription(e.target.value)}
+        />
+        <Button type="primary" onClick={postJob}>
+          Post Job
+        </Button>
+      </Card>
     </div>
   );
 };
