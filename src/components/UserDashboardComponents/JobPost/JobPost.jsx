@@ -14,6 +14,12 @@ const JobPost = ({ UserData, notification }) => {
 
   const postJob = async () => {
     try {
+      // Validate required fields
+      if (!UserData || !jobTitle || !serviceType || !jobDescription) {
+        notification("Error", "Please fill in all required fields.");
+        return;
+      }
+
       const response = await axios.post(`${HOST}/jobs/post`, {
         userId: UserData._id, // Assuming UserData contains user information
         title: jobTitle,       // Include title
