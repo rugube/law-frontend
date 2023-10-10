@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+// JobPost.js
+
+import React, { useState, useContext } from "react";
 import { Card, Input, Button, Select } from "antd";
 import axios from "axios";
 import HOST from "../../../utils/baseUrl";
+import { UserContext } from "../../../context/Admin_page/userFunction/userState"; // Import the UserContext
 
 const { TextArea } = Input;
 const { Option } = Select;
 
-const JobPost = ({ userData, notification }) => {
+const JobPost = ({ notification }) => {
+  const { userData } = useContext(UserContext); // Use the useContext hook to access userData
   const [jobTitle, setJobTitle] = useState("");
   const [serviceType, setServiceType] = useState("contract review");
   const [jobDescription, setJobDescription] = useState("");
