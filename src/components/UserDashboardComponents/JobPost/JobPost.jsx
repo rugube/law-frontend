@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Input, Button, Select } from "antd";
 import axios from "axios";
-import HOST from "../../../utils/baseUrl";
+import HOST from "../../utils/baseUrl";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -10,13 +10,16 @@ const JobPost = ({ UserData, notification }) => {
   const [jobTitle, setJobTitle] = useState("");
   const [serviceType, setServiceType] = useState("contract review");
   const [jobDescription, setJobDescription] = useState("");
+  const [budget, setBudget] = useState(""); // Include budget
 
   const postJob = async () => {
     try {
-      const response = await axios.post(`${HOST}/jobs/post`, {
+      const response = await axios.post(`${HOST}/jobs`, {
         userId: UserData._id, // Assuming UserData contains user information
-        serviceType,
-        description: jobDescription,
+        title: jobTitle,       // Include title
+        serviceType,           // Include serviceType
+        description: jobDescription, // Include description
+        budget,               // Include budget
       });
 
       if (response.status === 201) {
@@ -26,6 +29,7 @@ const JobPost = ({ UserData, notification }) => {
         setJobTitle("");
         setServiceType("contract review");
         setJobDescription("");
+        setBudget(""); // Clear budget input field
       } else {
         // Job posting failed
         notification("Error", "Failed to post the job.");
@@ -55,6 +59,11 @@ const JobPost = ({ UserData, notification }) => {
           <Option value="legal consultation">Legal Consultation</Option>
           <Option value="other">Other</Option>
         </Select>
+        <Input // Add budget input field
+          placeholder="Budget"
+          value={budget}
+          onChange={(e) => setBudget(e.target.value)}
+        />
         <TextArea
           placeholder="Job Description"
           value={jobDescription}
