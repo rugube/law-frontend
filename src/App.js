@@ -18,6 +18,7 @@ import FailedBooking from './pages/failedBooking/FailedBooking';
 import UnAuthenticated from './pages/PageNotFound/UnAuthenticated';
 import VideoCalls from './components/VideoCalls/videocalls';
 import ProtectedRoute from './ProtectedRoute';
+import Jobs from './pages/jobs/jobs';
 function App() {
 
   return (
@@ -32,7 +33,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path='/successBooking' element={<BookingSuccess />} />
         <Route path='/failedBooking' element={<FailedBooking />} />
-        
+        <Route path='/jobs' element={<Jobs />} />
 
         {/*! <!-- Authentication Required (Done)--> */}
         <Route path="/userdashboard" element={<UserDashboard />} />
