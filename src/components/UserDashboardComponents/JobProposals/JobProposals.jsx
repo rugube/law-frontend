@@ -1,27 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Button, List } from "antd";
+import axios from "axios";
 
-const JobProposals = ({ jobs, proposals, setProposals, notification, fnotification }) => {
-  // Function to accept a proposal
-  const acceptProposal = (jobId, proposalId) => {
-    // Find the job by ID
-    const job = jobs.find((j) => j.id === jobId);
+const JobProposals = ({ UserData, notification, fnotification }) => {
+  const [jobs, setJobs] = useState([]);
+  const [proposals, setProposals] = useState([]);
 
-    // Find the proposal by ID
-    const proposal = proposals.find((p) => p.id === proposalId);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        // Fetch job postings
+        const jobsResponse = await axios.get("/api/jobs");
+        setJobs(jobsResponse.data);
 
-    if (job && proposal) {
-      // Perform any necessary logic to accept the proposal
-      // You can update the proposal status, etc.
+        // Fetch proposals
+        const proposalsResponse = await axios.get("/api/proposals");
+        setProposals(proposalsResponse.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        fnotification("Error", "An error occurred while fetching data.");
+      }
+    }
 
-      // Show a success notification
-      notification("Proposal Accepted", "The proposal has been accepted.");
+    fetchData();
+  }, []);
 
-      // Update the proposals state (if needed)
-      // setProposals([...proposals, updatedProposal]);
-    } else {
-      // Show an error notification if job or proposal not found
-      fnotification("Error", "Job or proposal not found.");
+  const acceptProposal = async (jobId, proposalId) => {
+    try {
+      const response = await axios.post(`/api/jobs/${jobId}/accept/${proposalId}`);
+      
+      if (response.status === 200) {
+        // Proposal accepted successfully
+        notification("Proposal Accepted", "The proposal has been accepted.");
+        // Remove the accepted proposal from the list (if needed)
+        setProposals((prevProposals) => prevProposals.filter((p) => p._id !== proposalId));
+      } else {
+        // Proposal acceptance failed
+        fnotification("Error", "Failed to accept the proposal.");
+      }
+    } catch (error) {
+      console.error("Error accepting proposal:", error);
+      fnotification("Error", "An error occurred while accepting the proposal.");
     }
   };
 
@@ -29,17 +48,17 @@ const JobProposals = ({ jobs, proposals, setProposals, notification, fnotificati
     <div>
       <h2>Job Proposals</h2>
       {jobs.map((job) => (
-        <Card key={job.id} title={job.title} style={{ marginBottom: "16px" }}>
+        <Card key={job._id} title={job.title} style={{ marginBottom: "16px" }}>
           <p>{job.description}</p>
           <h4>Proposals:</h4>
           <List
             dataSource={proposals}
             renderItem={(proposal) => (
               <List.Item>
-                {proposal.jobId === job.id ? (
+                {proposal.jobId === job._id ? (
                   <div>
                     <p>{proposal.description}</p>
-                    <Button type="primary" onClick={() => acceptProposal(job.id, proposal.id)}>
+                    <Button type="primary" onClick={() => acceptProposal(job._id, proposal._id)}>
                       Accept Proposal
                     </Button>
                   </div>
