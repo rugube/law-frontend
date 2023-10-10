@@ -6,7 +6,7 @@ import HOST from "../../../utils/baseUrl";
 const { TextArea } = Input;
 const { Option } = Select;
 
-const JobPost = ({ UserData, notification }) => {
+const JobPost = ({ userData, notification }) => {
   const [jobTitle, setJobTitle] = useState("");
   const [serviceType, setServiceType] = useState("contract review");
   const [jobDescription, setJobDescription] = useState("");
@@ -15,13 +15,13 @@ const JobPost = ({ UserData, notification }) => {
   const postJob = async () => {
     try {
       // Validate required fields
-      if (!UserData || !jobTitle || !serviceType || !jobDescription) {
+      if (!userData || !jobTitle || !serviceType || !jobDescription) {
         notification("Error", "Please fill in all required fields.");
         return;
       }
 
       const response = await axios.post(`${HOST}/jobs/post`, {
-        userId: UserData._id, // Assuming UserData contains user information
+        userId: userData._id, // Assuming userData contains user information
         title: jobTitle,       // Include title
         serviceType,           // Include serviceType
         description: jobDescription, // Include description
