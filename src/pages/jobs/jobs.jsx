@@ -88,13 +88,7 @@ const Jobs = () => {
         notification={openNotification}
       />
       {/* Render the JobProposals component to view and accept proposals */}
-      <JobProposals
-        jobs={jobs}
-        proposals={proposals}
-        setProposals={setProposals}
-        notification={openNotification}
-        fnotification={FopenNotification}
-      />
+      
     </div>
   );
 };
