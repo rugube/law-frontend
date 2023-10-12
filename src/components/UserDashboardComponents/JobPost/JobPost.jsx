@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Layout, Card, Form, Input, Select, Button, message } from "antd";
 import axios from "axios"; // Import Axios
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
+import HOST from "../../../utils/baseUrl";
 
 const { Content } = Layout;
 const { TextArea } = Input;
@@ -27,7 +28,7 @@ const JobPost = () => {
 
     try {
       // Make an API call to post the job
-      const response = await axios.post(`${jobs/post}`, jobData);
+      const response = await axios.post(`${HOST/jobs/post}`, jobData);
 
       if (response.status === 201) {
         // Job posting successful
