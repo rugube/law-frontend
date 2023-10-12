@@ -52,16 +52,17 @@ const JobProposals = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Title level={2}>View Proposals</Title>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} justify="center">
         {jobs.map((job) => (
           <Col key={job._id} xs={24} sm={12} md={8} lg={6} xl={6}>
             <Card
               title={<Text strong>{job.title}</Text>}
-              actions={[
+              extra={
                 <Button onClick={() => handleViewProposals(job)}>View Proposals</Button>
-              ]}
+              }
+              style={{ height: "100%" }}
             >
               <p>
                 <Text strong>Service Type:</Text> {job.serviceType}
