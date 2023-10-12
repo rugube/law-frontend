@@ -3,7 +3,7 @@ import axios from "axios";
 import { Modal, Card, Button, List, Typography, Row, Col } from "antd";
 import HOST from "../../../utils/baseUrl";
 
-const { Text } = Typography;
+const { Title, Text } = Typography;
 
 const JobProposals = () => {
   const [jobs, setJobs] = useState([]);
@@ -53,19 +53,16 @@ const JobProposals = () => {
 
   return (
     <div>
-      <h1 className="page-title">View Proposals</h1>
-      <Row gutter={[16, 16]} justify="start">
+      <Title level={2}>View Proposals</Title>
+      <Row gutter={[16, 16]}>
         {jobs.map((job) => (
-          <Col key={job._id} xs={24} sm={12} md={12} lg={8} xl={8}>
+          <Col key={job._id} xs={24} sm={12} md={8} lg={6} xl={6}>
             <Card
-              title={job.title}
+              title={<Text strong>{job.title}</Text>}
               actions={[
                 <Button onClick={() => handleViewProposals(job)}>View Proposals</Button>
               ]}
             >
-              <p>
-                <Text strong>Job Title:</Text> {job.title}
-              </p>
               <p>
                 <Text strong>Service Type:</Text> {job.serviceType}
               </p>
@@ -88,7 +85,7 @@ const JobProposals = () => {
             dataSource={selectedJob.proposals}
             renderItem={(proposal) => (
               <List.Item>
-                <Card title={`Lawyer: ${proposal.lawyerId}`}>
+                <Card title={<Text strong>{`Lawyer: ${proposal.lawyerId}`}></Text}>
                   <p>{proposal.proposal}</p>
                   <Button
                     type="primary"
