@@ -61,10 +61,10 @@ const UserProfile = ({ UserData }) => {
         <hr style={{ width: "80%" }} />
       </center>
       <div className="UserProfileSecond">
-        <Link to="/">Home</Link>
-        <Link to="/">Reminders</Link>
-        <Link to="/">Calendar</Link>
-        <Link to="/">Contact</Link>
+        <Link to="/userdashboard">Dashboard</Link>
+        <Link to="/jobs">Post A Job</Link>
+        <Link to="/proposals">View Proposals</Link>
+        <Link to="/appointment">Meetings</Link>
       </div>
     </div>
   );
