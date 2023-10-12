@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Layout, Card, Form, Input, Select, Button, message } from "antd";
-import axios from "axios"; // Import Axios
+import axios from "axios"; 
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
 import HOST from "../../../utils/baseUrl";
 
