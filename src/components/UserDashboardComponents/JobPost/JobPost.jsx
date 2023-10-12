@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Layout, Card, Form, Input, Select, Button, message } from "antd";
+import axios from "axios"; // Import Axios
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
 
 const { Content } = Layout;
@@ -12,15 +13,37 @@ const JobPost = () => {
   const [form] = Form.useForm();
   const [isPosting, setIsPosting] = useState(false);
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     setIsPosting(true);
 
-    // Simulate a post request, replace with your actual API call
-    setTimeout(() => {
-      setIsPosting(false);
-      form.resetFields();
-      message.success("Job posted successfully!");
-    }, 2000);
+    // Prepare the job data
+    const jobData = {
+      userId: userData._id,
+      title: values.title,
+      serviceType: values.serviceType,
+      budget: values.budget,
+      description: values.description,
+    };
+
+    try {
+      // Make an API call to post the job
+      const response = await axios.post(`${jobs/post}`, jobData);
+
+      if (response.status === 201) {
+        // Job posting successful
+        form.resetFields();
+        message.success("Job posted successfully!");
+      } else {
+        // Job posting failed
+        message.error("Failed to post the job.");
+      }
+    } catch (error) {
+      // Handle any errors
+      console.error("Error posting job:", error);
+      message.error("An error occurred while posting the job.");
+    }
+
+    setIsPosting(false);
   };
 
   return (
