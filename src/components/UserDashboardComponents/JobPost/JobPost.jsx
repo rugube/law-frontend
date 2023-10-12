@@ -28,7 +28,7 @@ const JobPost = () => {
 
     try {
       // Make an API call to post the job
-      const response = await axios.post(`${HOST/jobs/post}`, jobData);
+      const response = await axios.post(`${HOST}/jobs/post`, jobData);
 
       if (response.status === 201) {
         // Job posting successful
