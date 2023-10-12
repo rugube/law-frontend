@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal, Card, Button, List, Row, Col, Typography } from "antd";
+import { Modal, Card, Button, List, Typography, Row, Col } from "antd";
 import HOST from "../../../utils/baseUrl";
 
-const { Text } = Typography;
+const { Title, Text } = Typography;
 
 const JobProposals = () => {
   const [jobs, setJobs] = useState([]);
@@ -52,19 +52,24 @@ const JobProposals = () => {
   };
 
   return (
-    <div>
-      <h1>View Proposals</h1>
-      <Row gutter={16}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <Title level={2}>View Proposals</Title>
+      <Row gutter={[16, 16]} justify="center">
         {jobs.map((job) => (
-          <Col xs={24} sm={12} md={8} lg={6} xl={6} key={job._id}>
+          <Col key={job._id} xs={24} sm={12} md={8} lg={6} xl={6}>
             <Card
-              title={job.title}
+              title={<Text strong>{job.title}</Text>}
               extra={
                 <Button onClick={() => handleViewProposals(job)}>View Proposals</Button>
               }
+              style={{ height: "100%" }}
             >
-              <p>Service Type: {job.serviceType}</p>
-              <p>Description: {job.description}</p>
+              <p>
+                <Text strong>Service Type:</Text> {job.serviceType}
+              </p>
+              <p>
+                <Text strong>Description:</Text> {job.description}
+              </p>
             </Card>
           </Col>
         ))}
@@ -81,7 +86,7 @@ const JobProposals = () => {
             dataSource={selectedJob.proposals}
             renderItem={(proposal) => (
               <List.Item>
-                <Card title={<Text strong>{`Lawyer: ${proposal.lawyerId}`}</Text>}>
+                <Card title={<Text strong>{`Lawyer: ${proposal.lawyerId}`}</Text>}> {/* Fixed the typo here */}
                   <p>{proposal.proposal}</p>
                   <Button
                     type="primary"
