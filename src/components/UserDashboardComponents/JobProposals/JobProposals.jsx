@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal, Card, Button, List } from "antd";
+import { Modal, Card, Button, List, Typography, Row, Col } from "antd";
 import HOST from "../../../utils/baseUrl";
+
+const { Text } = Typography;
 
 const JobProposals = () => {
   const [jobs, setJobs] = useState([]);
@@ -51,26 +53,26 @@ const JobProposals = () => {
 
   return (
     <div>
-      <h1>View Proposals</h1>
-      <List
-        grid={{ gutter: 16, column: 2 }}
-        dataSource={jobs}
-        renderItem={(job) => (
-          <List.Item>
+      <h1 className="page-title">View Proposals</h1>
+      <Row gutter={[16, 16]} justify="start">
+        {jobs.map((job) => (
+          <Col key={job._id} xs={24} sm={12} md={12} lg={8} xl={8}>
             <Card
               title={job.title}
-              extra={
-                <Button onClick={() => handleViewProposals(job)}>
-                  View Proposals
-                </Button>
-              }
+              actions={[
+                <Button onClick={() => handleViewProposals(job)}>View Proposals</Button>
+              ]}
             >
-              <p>Service Type: {job.serviceType}</p>
-              <p>Description: {job.description}</p>
+              <p>
+                <Text strong>Service Type:</Text> {job.serviceType}
+              </p>
+              <p>
+                <Text strong>Description:</Text> {job.description}
+              </p>
             </Card>
-          </List.Item>
-        )}
-      />
+          </Col>
+        ))}
+      </Row>
 
       {selectedJob && (
         <Modal
