@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal, Card, Button, List } from "antd";
-import HOST from "../../utils/baseUrl";
+import HOST from "../../../utils/baseUrl";
 
 const JobProposals = () => {
   const [jobs, setJobs] = useState([]);
