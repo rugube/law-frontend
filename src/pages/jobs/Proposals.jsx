@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/AuthContext/AuthState";
 import Loading from "../../components/AdminCompo/Loading";
 import { notification } from "antd";
 import JobProposals from "../../components/UserDashboardComponents/JobProposals/JobProposals";
+import { useNavigate } from "react-router-dom";
 
 const ViewProposalsPage = () => {
   const [api, contextHolder] = notification.useNotification();
@@ -17,6 +18,8 @@ const ViewProposalsPage = () => {
   const [UserData, setUserData] = useState({});
   // State to store proposals for jobs (You can adapt this as needed)
   const [proposals, setProposals] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
