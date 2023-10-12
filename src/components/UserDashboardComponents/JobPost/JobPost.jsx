@@ -3,6 +3,8 @@ import { Layout, Card, Form, Input, Select, Button, message } from "antd";
 import axios from "axios"; 
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
 import HOST from "../../../utils/baseUrl";
+import { AuthContext } from "../../../context/AuthContext/AuthState";
+
 
 const { Content } = Layout;
 const { TextArea } = Input;
@@ -10,6 +12,7 @@ const { Option } = Select;
 
 const JobPost = () => {
   const { userData } = useContext(UserContext);
+  const authContext = useContext(AuthContext); // Consume the AuthContext
 
   const [form] = Form.useForm();
   const [isPosting, setIsPosting] = useState(false);
@@ -17,9 +20,12 @@ const JobPost = () => {
   const onFinish = async (values) => {
     setIsPosting(true);
 
+    // Access user ID from AuthContext
+    const userId = authContext.user.id;
+
     // Prepare the job data
     const jobData = {
-      userId: userData._id,
+      userId,
       title: values.title,
       serviceType: values.serviceType,
       budget: values.budget,
