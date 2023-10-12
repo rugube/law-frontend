@@ -64,6 +64,9 @@ const JobProposals = () => {
               ]}
             >
               <p>
+                <Text strong>Job Title:</Text> {job.title}
+              </p>
+              <p>
                 <Text strong>Service Type:</Text> {job.serviceType}
               </p>
               <p>
