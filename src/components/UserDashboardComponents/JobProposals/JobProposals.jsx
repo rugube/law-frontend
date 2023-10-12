@@ -85,7 +85,7 @@ const JobProposals = () => {
             dataSource={selectedJob.proposals}
             renderItem={(proposal) => (
               <List.Item>
-                <Card title={<Text strong>{`Lawyer: ${proposal.lawyerId}`}></Text}>
+                <Card title={<Text strong>{`Lawyer: ${proposal.lawyerId}`}</Text>}> {/* Fixed the typo here */}
                   <p>{proposal.proposal}</p>
                   <Button
                     type="primary"
