@@ -14,7 +14,7 @@ const JobProposals = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get(`${HOST}/jobs/post`);
+      const response = await axios.get(`${HOST}/jobs/all`);
       setJobs(response.data);
     } catch (error) {
       console.error("Failed to fetch jobs:", error);
@@ -27,7 +27,7 @@ const JobProposals = () => {
 
   const handleAcceptProposal = async (jobId, proposalId) => {
     try {
-      await axios.post(`${HOST}/jobs/post`, { jobId, proposalId });
+      await axios.post(`${HOST}/jobs/acceptProposal`, { jobId, proposalId });
       // Update the UI or refetch jobs
       fetchJobs();
       // Close the modal
@@ -39,7 +39,7 @@ const JobProposals = () => {
 
   const handleRejectProposal = async (jobId, proposalId) => {
     try {
-      await axios.post(`${HOST}/jobs/post`, { jobId, proposalId });
+      await axios.post(`${HOST}/jobs/rejectProposal`, { jobId, proposalId });
       // Update the UI or refetch jobs
       fetchJobs();
       // Close the modal
