@@ -1,73 +1,108 @@
-import React, { useEffect, useState } from "react";
-import { Card, Button, List } from "antd";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Modal, Card, Button, List } from "antd";
+import HOST from "../../utils/baseUrl";
 
-const JobProposals = ({ UserData, notification, fnotification }) => {
+const JobProposals = () => {
   const [jobs, setJobs] = useState([]);
-  const [proposals, setProposals] = useState([]);
+  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        // Fetch job postings
-        const jobsResponse = await axios.get("/api/jobs");
-        setJobs(jobsResponse.data);
-
-        // Fetch proposals
-        const proposalsResponse = await axios.get("/api/proposals");
-        setProposals(proposalsResponse.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        fnotification("Error", "An error occurred while fetching data.");
-      }
-    }
-
-    fetchData();
+    // Fetch jobs when the component mounts
+    fetchJobs();
   }, []);
 
-  const acceptProposal = async (jobId, proposalId) => {
+  const fetchJobs = async () => {
     try {
-      const response = await axios.post(`/api/jobs/${jobId}/accept/${proposalId}`);
-      
-      if (response.status === 200) {
-        // Proposal accepted successfully
-        notification("Proposal Accepted", "The proposal has been accepted.");
-        // Remove the accepted proposal from the list (if needed)
-        setProposals((prevProposals) => prevProposals.filter((p) => p._id !== proposalId));
-      } else {
-        // Proposal acceptance failed
-        fnotification("Error", "Failed to accept the proposal.");
-      }
+      const response = await axios.get(`${HOST}/jobs/post`);
+      setJobs(response.data);
     } catch (error) {
-      console.error("Error accepting proposal:", error);
-      fnotification("Error", "An error occurred while accepting the proposal.");
+      console.error("Failed to fetch jobs:", error);
+    }
+  };
+
+  const handleViewProposals = (job) => {
+    setSelectedJob(job);
+  };
+
+  const handleAcceptProposal = async (jobId, proposalId) => {
+    try {
+      await axios.post(`${HOST}/jobs/post`, { jobId, proposalId });
+      // Update the UI or refetch jobs
+      fetchJobs();
+      // Close the modal
+      setSelectedJob(null);
+    } catch (error) {
+      console.error("Failed to accept proposal:", error);
+    }
+  };
+
+  const handleRejectProposal = async (jobId, proposalId) => {
+    try {
+      await axios.post(`${HOST}/jobs/post`, { jobId, proposalId });
+      // Update the UI or refetch jobs
+      fetchJobs();
+      // Close the modal
+      setSelectedJob(null);
+    } catch (error) {
+      console.error("Failed to reject proposal:", error);
     }
   };
 
   return (
     <div>
-      <h2>Job Proposals</h2>
-      {jobs.map((job) => (
-        <Card key={job._id} title={job.title} style={{ marginBottom: "16px" }}>
-          <p>{job.description}</p>
-          <h4>Proposals:</h4>
+      <h1>View Proposals</h1>
+      <List
+        grid={{ gutter: 16, column: 2 }}
+        dataSource={jobs}
+        renderItem={(job) => (
+          <List.Item>
+            <Card
+              title={job.title}
+              extra={
+                <Button onClick={() => handleViewProposals(job)}>
+                  View Proposals
+                </Button>
+              }
+            >
+              <p>Service Type: {job.serviceType}</p>
+              <p>Description: {job.description}</p>
+            </Card>
+          </List.Item>
+        )}
+      />
+
+      {selectedJob && (
+        <Modal
+          title={`Proposals for ${selectedJob.title}`}
+          visible={true}
+          onCancel={() => setSelectedJob(null)}
+          footer={null}
+        >
           <List
-            dataSource={proposals}
+            dataSource={selectedJob.proposals}
             renderItem={(proposal) => (
               <List.Item>
-                {proposal.jobId === job._id ? (
-                  <div>
-                    <p>{proposal.description}</p>
-                    <Button type="primary" onClick={() => acceptProposal(job._id, proposal._id)}>
-                      Accept Proposal
-                    </Button>
-                  </div>
-                ) : null}
+                <Card title={`Lawyer: ${proposal.lawyerId}`}>
+                  <p>{proposal.proposal}</p>
+                  <Button
+                    type="primary"
+                    onClick={() => handleAcceptProposal(selectedJob._id, proposal._id)}
+                  >
+                    Accept
+                  </Button>
+                  <Button
+                    type="danger"
+                    onClick={() => handleRejectProposal(selectedJob._id, proposal._id)}
+                  >
+                    Reject
+                  </Button>
+                </Card>
               </List.Item>
             )}
           />
-        </Card>
-      ))}
+        </Modal>
+      )}
     </div>
   );
 };

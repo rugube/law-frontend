@@ -19,6 +19,7 @@ import UnAuthenticated from './pages/PageNotFound/UnAuthenticated';
 import VideoCalls from './components/VideoCalls/videocalls';
 import ProtectedRoute from './ProtectedRoute';
 import Jobs from './pages/jobs/jobs';
+import ViewProposalsPage from './pages/jobs/Proposals';
 function App() {
 
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path='/addlawyer' element={<AddLawyerForm />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path='/videocalls' element={<VideoCalls/>} />
+        <Route path='/proposals' element={<ViewProposalsPage/>} />
       </Routes>
     </div>
   );
