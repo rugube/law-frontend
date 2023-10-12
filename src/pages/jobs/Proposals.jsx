@@ -77,7 +77,7 @@ const ViewProposalsPage = () => {
       <DashNavbar UserData={UserData} />
       <UserProfile UserData={UserData} />
       {/* Render the component to display job proposals */}
-      <JobProposalsProposals
+      <JobProposals
         UserData={UserData}
         proposals={proposals}
         setProposals={setProposals}
