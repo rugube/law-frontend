@@ -120,10 +120,7 @@ const UserDashboard = () => {
           </Card>
         </Col>
       </Row>
-      <AppointmentsArea
-        notification={openNotification}
-        fnotification={FopenNotification}
-      />
+      
     </div>
   );
 };
