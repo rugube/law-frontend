@@ -68,8 +68,8 @@ const UserDashboard = () => {
     <Loading />
   ) : (
     <div style={{ padding: "20px" }}>
-      <DashNavbar UserData={UserData} style={{ marginBottom: "20px" }} />
-      <UserProfile UserData={UserData} style={{ marginBottom: "20px" }} />
+      <DashNavbar UserData={UserData} style={{ marginBottom: "50px" }} />
+      <UserProfile UserData={UserData} style={{ marginBottom: "50px" }} />
       <Row gutter={[16, 16]} style={{ marginBottom: "20px" }}>
         <Col xs={24} sm={12} md={8}>
           <Card
