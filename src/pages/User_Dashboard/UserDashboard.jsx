@@ -68,9 +68,9 @@ const UserDashboard = () => {
     <Loading />
   ) : (
     <div style={{ padding: "20px" }}>
-      <DashNavbar UserData={UserData} />
-      <UserProfile UserData={UserData} />
-      <Row gutter={[16, 16]}>
+      <DashNavbar UserData={UserData} style={{ marginBottom: "20px" }} />
+      <UserProfile UserData={UserData} style={{ marginBottom: "20px" }} />
+      <Row gutter={[16, 16]} style={{ marginBottom: "20px" }}>
         <Col xs={24} sm={12} md={8}>
           <Card
             title="Upcoming Meetings"
