@@ -5,7 +5,7 @@ import AppointmentsArea from "../../components/UserDashboardComponents/Appointme
 import HOST from "../../utils/baseUrl";
 import { UserContext } from "../../context/Admin_page/userFunction/userState";
 import { useNavigate } from "react-router-dom";
-import { notification, Card, Statistic, Row, Col } from "antd";
+import { notification, Card, Statistic, Row, Col, Button } from "antd";
 import { AuthContext } from "../../context/AuthContext/AuthState";
 import Loading from "../../components/AdminCompo/Loading";
 
@@ -56,10 +56,10 @@ const UserDashboard = () => {
         setUserDetails(data.user);
         setUserData(data.user);
         setAuth(true);
-        openNotification("Login Success", "Succcessfully logged in.");
+        openNotification("Login Success", "Successfully logged in.");
       } catch (error) {
         console.log(error);
-        FopenNotification("Login Failed", "Trouble logged in.");
+        FopenNotification("Login Failed", "Trouble logging in.");
       }
     }
   }, []);
@@ -70,26 +70,56 @@ const UserDashboard = () => {
     <div style={{ padding: "20px" }}>
       <DashNavbar UserData={UserData} />
       <UserProfile UserData={UserData} />
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Card title="Upcoming Meetings" style={{ width: "30%", height: "200px" }}>
-          <p>Meeting 1</p>
-          <p>Meeting 2</p>
-          <p>Meeting 3</p>
-        </Card>
-        <Card title="Total Amount Spent" style={{ width: "30%", height: "200px" }}>
-          <Statistic
+      <Row gutter={[16, 16]}>
+        <Col xs={24} sm={12} md={8}>
+          <Card
+            title="Upcoming Meetings"
+            style={{ height: "200px" }}
+            extra={
+              <Button type="primary">
+                View All Meetings
+              </Button>
+            }
+          >
+            <p>Meeting 1</p>
+            <p>Meeting 2</p>
+            <p>Meeting 3</p>
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card
             title="Total Amount Spent"
-            value={1000} // Replace with actual total amount
-            prefix="$"
-          />
-        </Card>
-        <Card title="Jobs Completed" style={{ width: "30%", height: "200px" }}>
-          <Statistic
+            style={{ height: "200px" }}
+            extra={
+              <Button type="primary">
+                View Amount
+              </Button>
+            }
+          >
+            <Statistic
+              title="Total Amount Spent"
+              value={1000} // Replace with actual total amount
+              prefix="$"
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card
             title="Jobs Completed"
-            value={50} // Replace with actual total completed jobs
-          />
-        </Card>
-      </div>
+            style={{ height: "200px" }}
+            extra={
+              <Button type="primary">
+                View All Completed Jobs
+              </Button>
+            }
+          >
+            <Statistic
+              title="Jobs Completed"
+              value={50} // Replace with actual total completed jobs
+            />
+          </Card>
+        </Col>
+      </Row>
       <AppointmentsArea
         notification={openNotification}
         fnotification={FopenNotification}
