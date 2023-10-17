@@ -79,7 +79,11 @@ const UserDashboard = () => {
       <Row gutter={[16, 16]} style={{ marginBottom: "20px" }}>
         <Col xs={24} sm={12} md={8}>
           <Card
-            title="Upcoming Meetings"
+            title={
+              <Badge count={meetingCount} style={{ backgroundColor: '#52c41a' }}>
+                Upcoming Meetings
+              </Badge>
+            }
             style={{ height: "200px", marginTop: "20px" }}
             extra={
               <Button type="primary" onClick={handleMeetingIncrement}>
@@ -91,7 +95,6 @@ const UserDashboard = () => {
             <p>Meeting 2</p>
             <p>Meeting 3</p>
           </Card>
-          <Badge count={meetingCount} style={{ backgroundColor: '#52c41a', marginTop: '10px' }} />
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
