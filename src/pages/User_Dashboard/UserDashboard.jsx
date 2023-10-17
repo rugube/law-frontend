@@ -5,7 +5,7 @@ import AppointmentsArea from "../../components/UserDashboardComponents/Appointme
 import HOST from "../../utils/baseUrl";
 import { UserContext } from "../../context/Admin_page/userFunction/userState";
 import { useNavigate } from "react-router-dom";
-import { notification, Card, Statistic, Row, Col, Button } from "antd";
+import { notification, Card, Statistic, Row, Col, Button, Badge } from "antd";
 import { AuthContext } from "../../context/AuthContext/AuthState";
 import Loading from "../../components/AdminCompo/Loading";
 
@@ -31,6 +31,7 @@ const UserDashboard = () => {
 
   let [UserData, setUserData] = useState({});
   const navigate = useNavigate();
+  const [meetingCount, setMeetingCount] = useState(0); // State to keep track of meetings
 
   useEffect(() => {
     setTimeout(() => {
@@ -64,19 +65,24 @@ const UserDashboard = () => {
     }
   }, []);
 
+  const handleMeetingIncrement = () => {
+    setMeetingCount(meetingCount + 1);
+  };
+
   return !Auth ? (
     <Loading />
   ) : (
     <div style={{ padding: "20px" }}>
-      <DashNavbar UserData={UserData} style={{ marginBottom: "50px" }} />
-      <UserProfile UserData={UserData} style={{ marginBottom: "50px" }} />
+      {contextHolder}
+      <DashNavbar UserData={UserData} style={{ marginBottom: "20px" }} />
+      <UserProfile UserData={UserData} style={{ marginBottom: "20px" }} />
       <Row gutter={[16, 16]} style={{ marginBottom: "20px" }}>
         <Col xs={24} sm={12} md={8}>
           <Card
             title="Upcoming Meetings"
-            style={{ height: "200px" }}
+            style={{ height: "200px", marginTop: "20px" }}
             extra={
-              <Button type="primary">
+              <Button type="primary" onClick={handleMeetingIncrement}>
                 View All Meetings
               </Button>
             }
@@ -85,6 +91,7 @@ const UserDashboard = () => {
             <p>Meeting 2</p>
             <p>Meeting 3</p>
           </Card>
+          <Badge count={meetingCount} style={{ backgroundColor: '#52c41a', marginTop: '10px' }} />
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card
@@ -120,7 +127,10 @@ const UserDashboard = () => {
           </Card>
         </Col>
       </Row>
-      
+      <AppointmentsArea
+        notification={openNotification}
+        fnotification={FopenNotification}
+      />
     </div>
   );
 };
