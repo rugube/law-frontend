@@ -96,7 +96,7 @@ const UserDashboard = () => {
             <p>Meeting 3</p>
           </Card>
         </Col>
-        <Col xs={24} sm={12} md={8}>
+        <Col xs={24} sm={12} md={8} style={{ marginBottom: "20px" }} >
           <Card
             title="Total Amount Spent"
             style={{ height: "200px" }}
@@ -113,7 +113,7 @@ const UserDashboard = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} md={8}>
+        <Col xs={24} sm={12} md={8} style={{ marginBottom: "20px" }}>
           <Card
             title="Jobs Completed"
             style={{ height: "200px" }}
