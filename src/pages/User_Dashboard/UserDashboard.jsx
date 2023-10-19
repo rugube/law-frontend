@@ -120,7 +120,7 @@ const UserDashboard = () => {
             extra={
               <Link to="/alljobs"> {/* Use Link to navigate */}
                 <Button type="primary">
-                  View All Completed Jobs
+                  View Jobs
                 </Button>
               </Link>
             }
