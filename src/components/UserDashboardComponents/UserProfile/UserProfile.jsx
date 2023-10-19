@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./UserProfile.css";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom"; // Changed 'Link' to 'NavLink'
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
 
 const UserProfile = ({ UserData }) => {
@@ -42,29 +42,37 @@ const UserProfile = ({ UserData }) => {
           </p>
         </div>
         <div className="UserProfileRight" data-aos="fade-left">
-          <Link to="/lawyers">
-            <button className="BigBAPBTN">Book an Appointment + </button>
-          </Link>
+          <NavLink to="/lawyers" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+            <button className="BigBAPBTN">Book an Appointment +</button>
+          </NavLink>
         </div>
         <div className="UserProfileRight" data-aos="fade-left">
-          <Link to="/alljobs">
-            <button className="BigBAPBTN">Start Video Call </button>
-          </Link>
+          <NavLink to="/alljobs" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+            <button className="BigBAPBTN">Start Video Call</button>
+          </NavLink>
         </div>
         <div className="UserProfileRight" data-aos="fade-left">
-          <Link to="/jobs">
-            <button className="BigBAPBTN">Post A Job </button>
-          </Link>
+          <NavLink to="/jobs" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+            <button className="BigBAPBTN">Post A Job</button>
+          </NavLink>
         </div>
       </div>
       <center>
         <hr style={{ width: "80%" }} />
       </center>
       <div className="UserProfileSecond">
-        <Link to="/userdashboard">Dashboard</Link>
-        <Link to="/jobs">Post A Job</Link>
-        <Link to="/proposals">View Proposals</Link>
-        <Link to="/appointment">Meetings</Link>
+        <NavLink to="/userdashboard" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+          Dashboard
+        </NavLink>
+        <NavLink to="/jobs" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+          Post A Job
+        </NavLink>
+        <NavLink to="/proposals" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+          View Proposals
+        </NavLink>
+        <NavLink to="/appointment" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+          Meetings
+        </NavLink>
       </div>
     </div>
   );

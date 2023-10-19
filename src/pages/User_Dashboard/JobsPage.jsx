@@ -23,7 +23,7 @@ const JobsPage = () => {
             {/* Replace with real data for active jobs */}
             <Col span={8}>
               <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
+                Job details go hereR
               </Card>
             </Col>
             <Col span={8}>
