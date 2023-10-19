@@ -4,7 +4,7 @@ import UserProfile from "../../components/UserDashboardComponents/UserProfile/Us
 import AppointmentsArea from "../../components/UserDashboardComponents/AppointmentsArea/AppointmentsArea";
 import HOST from "../../utils/baseUrl";
 import { UserContext } from "../../context/Admin_page/userFunction/userState";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { notification, Card, Statistic, Row, Col, Button, Badge } from "antd";
 import { AuthContext } from "../../context/AuthContext/AuthState";
 import Loading from "../../components/AdminCompo/Loading";
@@ -118,9 +118,11 @@ const UserDashboard = () => {
             title="Jobs Completed"
             style={{ height: "200px" }}
             extra={
-              <Button type="primary" to="/alljobs" >
-                View All Completed Jobs
-              </Button>
+              <Link to="/alljobs"> {/* Use Link to navigate */}
+                <Button type="primary">
+                  View All Completed Jobs
+                </Button>
+              </Link>
             }
           >
             <Statistic
