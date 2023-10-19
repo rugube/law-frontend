@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs, Card, Row, Col } from 'antd';
-import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';// Import DashNavbar
-import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile'; // Import UserProfile
+import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
+import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile';
 
 const { TabPane } = Tabs;
 
@@ -14,73 +14,72 @@ const JobsPage = () => {
 
   return (
     <div className="jobs-page">
-      <DashNavbar /> {/* Include the DashNavbar component here */}
-      <UserProfile /> {/* Include the UserProfile component here */}
-      <h1>Jobs</h1>
-      <Tabs activeKey={activeTab} onChange={handleTabChange}>
-        <TabPane tab="Active Jobs" key="active">
-          <Row gutter={16}>
-            {/* Replace with real data for active jobs */}
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go hereR
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-          </Row>
-        </TabPane>
+      <DashNavbar />
+      <UserProfile />
+      <div className="jobs-container">
+        <h1>Jobs</h1>
+        <Tabs activeKey={activeTab} onChange={handleTabChange} animated>
+          <TabPane tab="Active Jobs" key="active">
+            <Row gutter={16}>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 1" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 2" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 3" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+            </Row>
+          </TabPane>
 
-        <TabPane tab="Posted Jobs" key="posted">
-          <Row gutter={16}>
-            {/* Replace with real data for posted jobs */}
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-          </Row>
-        </TabPane>
+          <TabPane tab="Posted Jobs" key="posted">
+            <Row gutter={16}>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 4" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 5" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 6" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+            </Row>
+          </TabPane>
 
-        <TabPane tab="Completed Jobs" key="completed">
-          <Row gutter={16}>
-            {/* Replace with real data for completed jobs */}
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card title="Job Title" extra={<a href="#">Details</a>}>
-                Job details go here.
-              </Card>
-            </Col>
-          </Row>
-        </TabPane>
-      </Tabs>
+          <TabPane tab="Completed Jobs" key="completed">
+            <Row gutter={16}>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 7" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 8" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+              <Col xs={24} sm={12} md={8}>
+                <Card title="Job Title 9" extra={<a href="#">Details</a>}>
+                  Job details go here.
+                </Card>
+              </Col>
+            </Row>
+          </TabPane>
+        </Tabs>
+      </div>
     </div>
   );
 };
