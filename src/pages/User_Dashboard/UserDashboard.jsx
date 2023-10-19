@@ -118,7 +118,7 @@ const UserDashboard = () => {
             title="Jobs Completed"
             style={{ height: "200px" }}
             extra={
-              <Button type="primary" to="/jobs" >
+              <Button type="primary" to="/alljobs" >
                 View All Completed Jobs
               </Button>
             }

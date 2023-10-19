@@ -47,7 +47,7 @@ function App() {
         <Route path='/verifyOTP' element={<OtpPage />} />
         <Route path='/videocalls' element={<VideoCalls/>} />
         <Route path='/proposals' element={<ViewProposalsPage/>} />
-        <Route path='/jobs' element={<JobsPage/>} />
+        <Route path='/alljobs' element={<JobsPage/>} />
         
       </Routes>
     </div>
