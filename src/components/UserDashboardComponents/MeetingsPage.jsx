@@ -14,8 +14,9 @@ const MeetingsPage = ({ notification, fnotification }) => {
     <div className="MeetingsPage">
       <DashNavbar UserData={UserDetails} />
       <UserProfile UserData={UserDetails} />
-      <div className="jobs-container" style={{ padding: '20px' }}>
-        <Tabs defaultActiveKey="upcoming">
+      <div className="meetings-container" style={{ padding: '20px' }}>
+        <h1>Meetings</h1>
+        <Tabs defaultActiveKey="upcoming" centered>
           <TabPane tab="Upcoming Meetings" key="upcoming">
             <AppointmentsArea notification={notification} fnotification={fnotification} />
           </TabPane>
