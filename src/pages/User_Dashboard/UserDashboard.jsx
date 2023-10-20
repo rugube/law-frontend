@@ -99,7 +99,7 @@ const UserDashboard = () => {
         <Col xs={24} sm={12} md={8} style={{ marginBottom: "20px" }}>
           <Card
             title="Total Amount Spent"
-            style={{ height: "200px" }}
+            style={{ height: "200px", marginTop: "20px" }}
             extra={
               <Button type="primary">View Amount</Button>
             }
@@ -114,7 +114,7 @@ const UserDashboard = () => {
         <Col xs={24} sm={12} md={8} style={{ marginBottom: "20px" }}>
           <Card
             title="Jobs Completed"
-            style={{ height: "200px" }}
+            style={{ height: "200px", marginTop: "20px" }}
             extra={
               <Link to="/alljobs">
                 <Button type="primary">View Jobs</Button>

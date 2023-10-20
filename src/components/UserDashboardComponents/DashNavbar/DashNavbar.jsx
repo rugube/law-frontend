@@ -49,7 +49,7 @@ const DashNavbar = ({ UserData }) => {
         <NavLink to="/userdashboard" activeClassName="active">
           Dashboard
         </NavLink>
-        <NavLink to="/userdashboard" activeClassName="active">
+        <NavLink to="/" activeClassName="active">
           Services
         </NavLink>
         <NavLink to="/lawyers" activeClassName="active">
