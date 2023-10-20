@@ -79,13 +79,15 @@ const ViewProposalsPage = () => {
       {contextHolder}
       <DashNavbar UserData={UserData} />
       <UserProfile UserData={UserData} />
-      {/* Render the component to display job proposals */}
-      <JobProposals
-        UserData={UserData}
-        proposals={proposals}
-        setProposals={setProposals}
-        notification={openNotification}
-      />
+      <div className="proposals-container" style={{ padding: '20px' }}>
+        {/* Render the component to display job proposals */}
+        <JobProposals
+          UserData={UserData}
+          proposals={proposals}
+          setProposals={setProposals}
+          notification={openNotification}
+        />
+      </div>
     </div>
   );
 };
