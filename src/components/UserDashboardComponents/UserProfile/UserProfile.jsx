@@ -70,7 +70,7 @@ const UserProfile = ({ UserData }) => {
         <NavLink to="/proposals" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
           View Proposals
         </NavLink>
-        <NavLink to="/appointment" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
+        <NavLink to="/allmeetings" activeClassName="active"> {/* Changed 'Link' to 'NavLink' */}
           Meetings
         </NavLink>
       </div>

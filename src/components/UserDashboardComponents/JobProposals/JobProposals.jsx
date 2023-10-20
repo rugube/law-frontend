@@ -53,7 +53,6 @@ const JobProposals = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Title level={2}>View Proposals</Title>
       <Row gutter={[16, 16]} justify="center">
         {jobs.map((job) => (
           <Col key={job._id} xs={24} sm={12} md={8} lg={6} xl={6}>
