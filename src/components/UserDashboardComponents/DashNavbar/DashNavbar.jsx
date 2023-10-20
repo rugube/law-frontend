@@ -4,11 +4,10 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import HOST from "../../../utils/baseUrl";
 import { UserContext } from "../../../context/Admin_page/userFunction/userState";
 import Gweta from '../../../assets/Gweta.png'
+
 const DashNavbar = ({ UserData }) => {
   const [email, setEmail] = useState("User Email");
   const [name, setName] = useState("User Name");
-
-  // const navigate = useNavigate();
 
   const { UserDetails } = useContext(UserContext);
   useEffect(() => {
@@ -20,6 +19,9 @@ const DashNavbar = ({ UserData }) => {
     localStorage.clear();
     window.open(`${HOST}/auth/logout`, "_self");
   };
+
+  const activeClassName = "active-link"; // CSS class for active links
+
   return (
     <div className="DashNavbarParent" data-aos="fade">
       <div>
@@ -44,16 +46,16 @@ const DashNavbar = ({ UserData }) => {
         </NavLink>
       </div>
       <div className="DashNavMenu">
-        <NavLink to="/userdashboard" className="buttonunderline">
+        <NavLink to="/userdashboard" className={activeClassName}>
           Dashboard
         </NavLink>
-        <NavLink to="/userdashboard" className="buttonunderline">
+        <NavLink to="/userdashboard" className={activeClassName}>
           Services
         </NavLink>
-        <NavLink to="/lawyers" className="buttonunderline">
+        <NavLink to="/lawyers" className={activeClassName}>
           Search
         </NavLink>
-        <NavLink to="/" className="buttonunderline">
+        <NavLink to="/" className={activeClassName}>
           Contact Us
         </NavLink>
       </div>
