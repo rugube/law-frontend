@@ -80,16 +80,14 @@ const UserDashboard = () => {
         <Col xs={24} sm={12} md={8}>
           <Card
             title={
-              <Badge count={meetingCount} style={{ backgroundColor: '#52c41a' }}>
+              <Badge count={meetingCount} style={{ backgroundColor: "#52c41a" }}>
                 Upcoming Meetings
               </Badge>
             }
             style={{ height: "200px", marginTop: "20px" }}
             extra={
-              <Link to="/allmeetings"> {/* Use Link to navigate */}
-                <Button type="primary">
-                  View Meetings
-                </Button>
+              <Link to="/allmeetings">
+                <Button type="primary">View Meetings</Button>
               </Link>
             }
           >
@@ -98,14 +96,12 @@ const UserDashboard = () => {
             <p>Meeting 3</p>
           </Card>
         </Col>
-        <Col xs={24} sm={12} md={8} style={{ marginBottom: "20px" }} >
+        <Col xs={24} sm={12} md={8} style={{ marginBottom: "20px" }}>
           <Card
             title="Total Amount Spent"
             style={{ height: "200px" }}
             extra={
-              <Button type="primary">
-                View Amount
-              </Button>
+              <Button type="primary">View Amount</Button>
             }
           >
             <Statistic
@@ -120,10 +116,8 @@ const UserDashboard = () => {
             title="Jobs Completed"
             style={{ height: "200px" }}
             extra={
-              <Link to="/alljobs"> {/* Use Link to navigate */}
-                <Button type="primary">
-                  View Jobs
-                </Button>
+              <Link to="/alljobs">
+                <Button type="primary">View Jobs</Button>
               </Link>
             }
           >
@@ -134,7 +128,6 @@ const UserDashboard = () => {
           </Card>
         </Col>
       </Row>
-     
     </div>
   );
 };
