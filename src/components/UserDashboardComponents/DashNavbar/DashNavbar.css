@@ -49,8 +49,8 @@
 }
 
 /* Add styles for active link */
-.active-link {
-  /* Add styles for active link here */
-  color: #EBDACC;
+.DashNavMenu a.active {
+  /* Add your active link styles here */
   font-weight: bold;
+  color: #007bff; /* Change the color to your desired active link color */
 }

@@ -46,16 +46,16 @@ const DashNavbar = ({ UserData }) => {
         </NavLink>
       </div>
       <div className="DashNavMenu">
-        <NavLink to="/userdashboard" className={activeClassName}>
+        <NavLink to="/userdashboard" activeClassName="active">
           Dashboard
         </NavLink>
-        <NavLink to="/userdashboard" className={activeClassName}>
+        <NavLink to="/userdashboard" activeClassName="active">
           Services
         </NavLink>
-        <NavLink to="/lawyers" className={activeClassName}>
+        <NavLink to="/lawyers" activeClassName="active">
           Search
         </NavLink>
-        <NavLink to="/" className={activeClassName}>
+        <NavLink to="/" activeClassName="active">
           Contact Us
         </NavLink>
       </div>
