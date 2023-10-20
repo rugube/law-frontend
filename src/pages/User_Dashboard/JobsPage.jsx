@@ -17,7 +17,6 @@ const JobsPage = () => {
       <DashNavbar />
       <UserProfile />
       <div className="jobs-container" style={{ padding: '20px' }}>
-        <h1 style={{ textAlign: 'center' }}>Jobs</h1>
         <Tabs activeKey={activeTab} onChange={handleTabChange} centered>
           <TabPane tab="Active Jobs" key="active">
             <Row gutter={16} justify="center">

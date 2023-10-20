@@ -21,6 +21,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Jobs from './pages/jobs/jobs';
 import ViewProposalsPage from './pages/jobs/Proposals';
 import JobsPage from './pages/User_Dashboard/JobsPage';
+import MeetingsPage from './components/UserDashboardComponents/MeetingsPage';
 function App() {
 
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path='/videocalls' element={<VideoCalls/>} />
         <Route path='/proposals' element={<ViewProposalsPage/>} />
         <Route path='/alljobs' element={<JobsPage/>} />
+        <Route path='/allmeetings' element={<MeetingsPage/>} />
         
       </Routes>
     </div>

@@ -86,9 +86,11 @@ const UserDashboard = () => {
             }
             style={{ height: "200px", marginTop: "20px" }}
             extra={
-              <Button type="primary" onClick={handleMeetingIncrement}>
-                View All Meetings
-              </Button>
+              <Link to="/allmeetings"> {/* Use Link to navigate */}
+                <Button type="primary">
+                  View Meetings
+                </Button>
+              </Link>
             }
           >
             <p>Meeting 1</p>
