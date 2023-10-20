@@ -12,18 +12,18 @@ const MeetingsPage = ({ notification, fnotification }) => {
 
   return (
     <div className="MeetingsPage">
-      <UserProfile UserData={UserDetails} />
       <DashNavbar UserData={UserDetails} />
-
-      <h1>Meetings</h1>
-      <Tabs defaultActiveKey="upcoming">
-        <TabPane tab="Upcoming Meetings" key="upcoming">
-          <AppointmentsArea notification={notification} fnotification={fnotification} />
-        </TabPane>
-        <TabPane tab="Meeting History" key="history">
-          <AppointmentsArea notification={notification} fnotification={fnotification} />
-        </TabPane>
-      </Tabs>
+      <UserProfile UserData={UserDetails} />
+      <div className="jobs-container" style={{ padding: '20px' }}>
+        <Tabs defaultActiveKey="upcoming">
+          <TabPane tab="Upcoming Meetings" key="upcoming">
+            <AppointmentsArea notification={notification} fnotification={fnotification} />
+          </TabPane>
+          <TabPane tab="Meeting History" key="history">
+            <AppointmentsArea notification={notification} fnotification={fnotification} />
+          </TabPane>
+        </Tabs>
+      </div>
     </div>
   );
 };
