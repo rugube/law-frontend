@@ -51,7 +51,6 @@
 /* Add styles for active link */
 .active-link {
   /* Add styles for active link here */
-  background-color: #EBDACC;
-  color: black;
+  color: #EBDACC;
   font-weight: bold;
 }
