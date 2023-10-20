@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Tabs } from "antd";
-import UserProfile from "../UserProfile/UserProfile";
-import DashNavbar from "../DashNavbar/DashNavbar";
+import UserProfile from "./UserProfile/UserProfile";
+import DashNavbar from "./DashNavbar/DashNavbar";
 import AppointmentsArea from "../AppointmentsArea/AppointmentsArea";
 import { UserContext } from "../../context/Admin_page/userFunction/userState";
 
