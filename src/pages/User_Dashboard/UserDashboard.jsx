@@ -67,7 +67,7 @@ const UserDashboard = () => {
     }
 
     // Fetch the latest meetings when the component mounts
-    axios.get(`${HOST}/appointment/latest`).then((response) => {
+    axios.get(`${HOST}/appointments/latest`).then((response) => {
       setLatestMeetings(response.data);
     });
   }, []);
