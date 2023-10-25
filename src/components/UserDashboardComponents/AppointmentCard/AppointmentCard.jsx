@@ -96,9 +96,8 @@ const AppointmentCard = ({
               className="AdvThings"
               style={{ color: "grey", fontSize: "12px" }}
             >
-              Appointments are efficient when they are held with proper meeting
-              hygiene standards. Meeting hygiene consists of organization and
-              efficiency of conversation.{" "}
+            We appreciate your commitment to making our online meetings productive and efficient.
+            If you have any questions or need further assistance, please don't hesitate to contact us.{" "}
             </p>
             <br />
             <div>
