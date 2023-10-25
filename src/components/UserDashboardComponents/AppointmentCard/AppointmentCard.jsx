@@ -103,7 +103,7 @@ const AppointmentCard = ({
             <div>
               <ApoBtns
                 deleteFn={DeleteAppointment}
-                text={"Message"}
+                text={"Join Meeting"}
                 icon={
                   <svg
                     className="opentabicon"
