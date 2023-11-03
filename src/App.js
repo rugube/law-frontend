@@ -22,6 +22,7 @@ import Jobs from './pages/jobs/jobs';
 import ViewProposalsPage from './pages/jobs/Proposals';
 import JobsPage from './pages/User_Dashboard/JobsPage';
 import MeetingsPage from './components/UserDashboardComponents/MeetingsPage';
+import LawyerDashboard from './pages/Lawyer/LawyerDashboard';
 function App() {
 
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path='/successBooking' element={<BookingSuccess />} />
         <Route path='/failedBooking' element={<FailedBooking />} />
         <Route path='/jobs' element={<Jobs />} />
+        <Route path='/lawyerdashboard' element={<LawyerDashboard />} />
 
         {/*! <!-- Authentication Required (Done)--> */}
         <Route path="/userdashboard" element={<UserDashboard />} />
