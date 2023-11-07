@@ -1,19 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
-import {
-  FileTextOutlined,
-  MessageOutlined,
-} from '@ant-design/icons';
+import { FileTextOutlined, MessageOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/AuthContext/AuthState';
-import LawyerContext from '../../context/Admin_page/lawyercontext/lawyerContext';
 import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
 import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile';
-import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
+import { useNavigate } from 'react-router-dom';
 
 const LawyerDashboard = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  const { lawyerDetails, getLawyers, lawyers, loading, deleteLawyer } = useContext(LawyerContext);
-
   const [meetingCount, setMeetingCount] = useState(0);
 
   useEffect(() => {
@@ -24,12 +18,12 @@ const LawyerDashboard = () => {
     setMeetingCount(count); // Update the meetingCount state
   }, []);
 
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
   return isAuthenticated ? (
     <div>
       <DashNavbar />
-      <UserProfile userData={lawyerDetails} />
+      <UserProfile />
       <h1 className="dashboard-title">Lawyer Dashboard</h1>
       <Row gutter={[16, 16]} className="dashboard-cards">
         <Col xs={24} sm={12} md={8}>
@@ -58,7 +52,7 @@ const LawyerDashboard = () => {
           >
             <Statistic
               title="Total Cases"
-              value={lawyerDetails.casesInProgress} // Replace with actual case count
+              value={0} {/* Replace with actual case count */}
             />
           </Card>
         </Col>
@@ -73,14 +67,13 @@ const LawyerDashboard = () => {
           >
             <Statistic
               title="Unread Messages"
-              value={lawyerDetails.unreadMessages} // Replace with actual unread message count
+              value={0} {/* Replace with actual unread message count */}
             />
           </Card>
         </Col>
       </Row>
     </div>
   ) : (
-    // Use the navigate function to redirect to the login page if not authenticated
     navigate('/login')
   );
 };
