@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
 import {
   FileTextOutlined,
-  BriefcaseOutlined,
   MessageOutlined,
 } from '@ant-design/icons';
 import { AuthContext } from '../../context/AuthContext/AuthState';
@@ -49,7 +48,6 @@ const LawyerDashboard = () => {
         <Col xs={24} sm={12} md={8}>
           <Card
             className="dashboard-card"
-            cover={<BriefcaseOutlined style={{ fontSize: '64px' }} />}
             title="Cases in Progress"
             extra={
               <Button type="primary">View Cases</Button>
