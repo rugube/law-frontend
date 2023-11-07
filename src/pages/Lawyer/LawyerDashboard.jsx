@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthContext/AuthState';
 import { useNavigate } from 'react-router-dom';
 
 const LawyerDashboard = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { Auth } = useContext(AuthContext);
   const [meetingCount, setMeetingCount] = useState(0);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const LawyerDashboard = () => {
   const navigate = useNavigate();
 
   return !Auth ? (
-    <div>
+    <div>q
       <h1 className="dashboard-title">Lawyer Dashboard</h1>
       <Row gutter={[16, 16]} className="dashboard-cards">
         <Col xs={24} sm={12} md={8}>
