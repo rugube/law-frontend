@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
 import {
   FileTextOutlined,
@@ -8,6 +8,7 @@ import { AuthContext } from '../../context/AuthContext/AuthState';
 import LawyerContext  from '../../context/Admin_page/lawyercontext/lawyerContext';
 import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
 import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile';
+import { Redirect } from 'react-router-dom';
 
 const LawyerDashboard = () => {
   const { isAuthenticated } = useContext(AuthContext);
