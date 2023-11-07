@@ -52,7 +52,7 @@ const LawyerDashboard = () => {
           >
             <Statistic
               title="Total Cases"
-              value={0} {/* Replace with actual case count */}
+              value={10} 
             />
           </Card>
         </Col>
@@ -67,7 +67,7 @@ const LawyerDashboard = () => {
           >
             <Statistic
               title="Unread Messages"
-              value={0} {/* Replace with actual unread message count */}
+              value={10} 
             />
           </Card>
         </Col>
