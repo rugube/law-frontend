@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+// LawyerDashboard.js
+import React, { useContext, useEffect } from 'react';
 import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
 import {
   FileTextOutlined,
@@ -12,21 +13,22 @@ import UserProfile from '../../components/UserDashboardComponents/UserProfile/Us
 
 const LawyerDashboard = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  const { lawyerDetails } = useContext(LawyerContext);
+  const { lawyerDetails, getLawyers, lawyers, loading, deleteLawyer } = useContext(LawyerContext);
 
   const [meetingCount, setMeetingCount] = useState(0);
-  const latestMeetings = []; // Replace with actual data
 
   useEffect(() => {
-    // Simulate fetching latest meetings
-    // Update the 'latestMeetings' state with actual data
+    // Fetch latest meetings here and update meetingCount
+    // Replace this mock data with actual data
+    const latestMeetings = []; // Replace with actual data
+    const count = latestMeetings.length; // Get the count of meetings
+    setMeetingCount(count); // Update the meetingCount state
   }, []);
 
   return isAuthenticated ? (
     <div>
-      <div className="logo" />
-      <DashNavbar /> {/* Include DashNavbar component */}
-      <UserProfile /> {/* Include UserProfile component */}
+      <DashNavbar />
+      <UserProfile userData={lawyerDetails} />
       <h1 className="dashboard-title">Lawyer Dashboard</h1>
       <Row gutter={[16, 16]} className="dashboard-cards">
         <Col xs={24} sm={12} md={8}>
