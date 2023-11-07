@@ -5,10 +5,10 @@ import {
   MessageOutlined,
 } from '@ant-design/icons';
 import { AuthContext } from '../../context/AuthContext/AuthState';
-import LawyerContext  from '../../context/Admin_page/lawyercontext/lawyerContext';
+import LawyerContext from '../../context/Admin_page/lawyercontext/lawyerContext';
 import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
 import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile';
-import { Redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 
 const LawyerDashboard = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -23,6 +23,8 @@ const LawyerDashboard = () => {
     const count = latestMeetings.length; // Get the count of meetings
     setMeetingCount(count); // Update the meetingCount state
   }, []);
+
+  const navigate = useNavigate(); // Initialize the navigate function
 
   return isAuthenticated ? (
     <div>
@@ -51,7 +53,7 @@ const LawyerDashboard = () => {
             className="dashboard-card"
             title="Cases in Progress"
             extra={
-              <Button type="primary">View Cases</Button>
+              <Button type="primary" onClick={() => navigate('/cases')}>View Cases</Button>
             }
           >
             <Statistic
@@ -66,7 +68,7 @@ const LawyerDashboard = () => {
             cover={<MessageOutlined style={{ fontSize: '64px' }} />}
             title="Client Messages"
             extra={
-              <Button type="primary">View Messages</Button>
+              <Button type="primary" onClick={() => navigate('/messages')}>View Messages</Button>
             }
           >
             <Statistic
@@ -78,8 +80,8 @@ const LawyerDashboard = () => {
       </Row>
     </div>
   ) : (
-    // Redirect to the login page if not authenticated
-    <Redirect to="/login" />
+    // Use the navigate function to redirect to the login page if not authenticated
+    navigate('/login')
   );
 };
 
