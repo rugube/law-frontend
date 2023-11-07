@@ -1,117 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Layout, Menu, Card, Row, Col, Button, Statistic, Badge } from 'antd';
+import React, { useContext, useEffect, useState } from 'react';
+import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
 import {
   FileTextOutlined,
   BriefcaseOutlined,
   MessageOutlined,
 } from '@ant-design/icons';
-
-const { Header, Content } = Layout;
+import { AuthContext } from '../../context/AuthContext/AuthState';
+import { LawyerContext } from '../../context/LawyerContext/LawyerState';
+import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
+import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile';
 
 const LawyerDashboard = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+  const { lawyerDetails } = useContext(LawyerContext);
+
   const [meetingCount, setMeetingCount] = useState(0);
-
-  // Simulating data for the cards
-  const appointmentsData = [
-    'Appointment 1',
-    'Appointment 2',
-    'Appointment 3',
-  ];
-
-  const casesInProgress = 15; // Replace with actual case count
-  const unreadMessages = 7; // Replace with actual unread message count
+  const latestMeetings = []; // Replace with actual data
 
   useEffect(() => {
-    // Simulating the increment of meeting count
-    const interval = setInterval(() => {
-      setMeetingCount(meetingCount + 1);
-    }, 10000);
+    // Simulate fetching latest meetings
+    // Update the 'latestMeetings' state with actual data
+  }, []);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [meetingCount]);
-
-  return (
-    <Layout>
-      <Header>
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1">
-            <Link to="/lawyerdashboard">Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/cases">Cases</Link>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Link to="/messages">Messages</Link>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <Link to="/profile">Profile</Link>
-          </Menu.Item>
-        </Menu>
-      </Header>
-      <Content className="lawyer-dashboard">
-        <h1 className="dashboard-title">Lawyer Dashboard</h1>
-        <Row gutter={[16, 16]} className="dashboard-cards">
-          <Col xs={24} sm={12} md={8}>
-            <Card
-              className="dashboard-card"
-              cover={<FileTextOutlined style={{ fontSize: '64px' }} />}
-              title={
-                <Badge count={meetingCount} style={{ backgroundColor: '#52c41a' }}>
-                  New Appointments
-                </Badge>
-              }
-              extra={
-                <Link to="/appointments">
-                  <Button type="primary">View Appointments</Button>
-                </Link>
-              }
-            >
-              {appointmentsData.map((appointment, index) => (
-                <p key={index}>{appointment}</p>
-              ))}
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <Card
-              className="dashboard-card"
-              cover={<BriefcaseOutlined style={{ fontSize: '64px' }} />}
-              title="Cases in Progress"
-              extra={
-                <Link to="/cases">
-                  <Button type="primary">View Cases</Button>
-                </Link>
-              }
-            >
-              <Statistic
-                title="Total Cases"
-                value={casesInProgress} // Replace with actual total case count
-              />
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={8}>
-            <Card
-              className="dashboard-card"
-              cover={<MessageOutlined style={{ fontSize: '64px' }} />}
-              title="Client Messages"
-              extra={
-                <Link to="/messages">
-                  <Button type="primary">View Messages</Button>
-                </Link>
-              }
-            >
-              <Statistic
-                title="Unread Messages"
-                value={unreadMessages} // Replace with actual unread message count
-              />
-            </Card>
-          </Col>
-        </Row>
-      </Content>
-    </Layout>
+  return isAuthenticated ? (
+    <div>
+      <div className="logo" />
+      <DashNavbar /> {/* Include DashNavbar component */}
+      <UserProfile /> {/* Include UserProfile component */}
+      <h1 className="dashboard-title">Lawyer Dashboard</h1>
+      <Row gutter={[16, 16]} className="dashboard-cards">
+        <Col xs={24} sm={12} md={8}>
+          <Card
+            className="dashboard-card"
+            cover={<FileTextOutlined style={{ fontSize: '64px' }} />}
+            title={
+              <Badge count={meetingCount} style={{ backgroundColor: '#52c41a' }}>
+                New Appointments
+              </Badge>
+            }
+            extra={
+              <Button type="primary">View Appointments</Button>
+            }
+          >
+            {/* Render appointment data */}
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card
+            className="dashboard-card"
+            cover={<BriefcaseOutlined style={{ fontSize: '64px' }} />}
+            title="Cases in Progress"
+            extra={
+              <Button type="primary">View Cases</Button>
+            }
+          >
+            <Statistic
+              title="Total Cases"
+              value={lawyerDetails.casesInProgress} // Replace with actual case count
+            />
+          </Card>
+        </Col>
+        <Col xs={24} sm={12} md={8}>
+          <Card
+            className="dashboard-card"
+            cover={<MessageOutlined style={{ fontSize: '64px' }} />}
+            title="Client Messages"
+            extra={
+              <Button type="primary">View Messages</Button>
+            }
+          >
+            <Statistic
+              title="Unread Messages"
+              value={lawyerDetails.unreadMessages} // Replace with actual unread message count
+            />
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  ) : (
+    // Redirect to the login page if not authenticated
+    <Redirect to="/login" />
   );
 };
 
