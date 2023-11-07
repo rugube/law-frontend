@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
 import { FileTextOutlined, MessageOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/AuthContext/AuthState';
-import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
 import { useNavigate } from 'react-router-dom';
 
 const LawyerDashboard = () => {
@@ -19,9 +18,8 @@ const LawyerDashboard = () => {
 
   const navigate = useNavigate();
 
-  return isAuthenticated ? (
+  return !Auth ? (
     <div>
-      <DashNavbar />
       <h1 className="dashboard-title">Lawyer Dashboard</h1>
       <Row gutter={[16, 16]} className="dashboard-cards">
         <Col xs={24} sm={12} md={8}>
