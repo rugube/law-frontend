@@ -22,7 +22,6 @@ const LawyerDashboard = () => {
   return isAuthenticated ? (
     <div>
       <DashNavbar />
-      <UserProfile />
       <h1 className="dashboard-title">Lawyer Dashboard</h1>
       <Row gutter={[16, 16]} className="dashboard-cards">
         <Col xs={24} sm={12} md={8}>
