@@ -6,7 +6,7 @@ import {
   MessageOutlined,
 } from '@ant-design/icons';
 import { AuthContext } from '../../context/AuthContext/AuthState';
-import { LawyerContext } from '../../context/Admin_page/lawyercontext/lawyerContext';
+import { LawyerContext } from '../../context/Admin_page/lawyercontext/lawyerContext/LawyerContext'
 import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
 import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile';
 
