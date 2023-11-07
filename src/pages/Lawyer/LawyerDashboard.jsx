@@ -3,7 +3,6 @@ import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
 import { FileTextOutlined, MessageOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/AuthContext/AuthState';
 import DashNavbar from '../../components/UserDashboardComponents/DashNavbar/DashNavbar';
-import UserProfile from '../../components/UserDashboardComponents/UserProfile/UserProfile';
 import { useNavigate } from 'react-router-dom';
 
 const LawyerDashboard = () => {
