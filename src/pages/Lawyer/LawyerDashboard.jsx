@@ -1,4 +1,3 @@
-// LawyerDashboard.js
 import React, { useContext, useEffect } from 'react';
 import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
 import {
