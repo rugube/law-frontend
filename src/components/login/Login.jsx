@@ -71,7 +71,7 @@ const Login = () => {
       localStorage.setItem("token", responseData.token);
       setAuth(true);
       FopenNotification("Lawyer Login Success", "Successfully logged in as a lawyer.");
-      navigate("/lawyerdashboard");
+      navigate("/userdashboard");
     } else {
       FopenNotification("Invalid Credentials", "Enter valid lawyer account details.");
     }
