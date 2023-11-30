@@ -16,13 +16,10 @@ import AddLawyerForm from './pages/AddForms/AddLawyerForm';
 import BookingSuccess from './pages/bookingSuccess/BookingSuccess';
 import FailedBooking from './pages/failedBooking/FailedBooking';
 import UnAuthenticated from './pages/PageNotFound/UnAuthenticated';
-import VideoCalls from './components/VideoCalls/videocalls';
-import ProtectedRoute from './ProtectedRoute';
-import Jobs from './pages/jobs/jobs';
-import ViewProposalsPage from './pages/jobs/Proposals';
-import JobsPage from './pages/User_Dashboard/JobsPage';
-import MeetingsPage from './components/UserDashboardComponents/MeetingsPage';
+import JobPost from './pages/Jobs/Jobs';
+import MeetingsPage from './pages/Meetings/meetings';
 import LawyerDashboard from './pages/Lawyer/LawyerDashboard';
+import LawyerSignUpPage from './pages/signup/lawyerSignUp';
 function App() {
 
   return (
@@ -37,8 +34,6 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path='/successBooking' element={<BookingSuccess />} />
         <Route path='/failedBooking' element={<FailedBooking />} />
-        <Route path='/jobs' element={<Jobs />} />
-        <Route path='/lawyerdashboard' element={<LawyerDashboard />} />
 
         {/*! <!-- Authentication Required (Done)--> */}
         <Route path="/userdashboard" element={<UserDashboard />} />
@@ -48,11 +43,10 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/addlawyer' element={<AddLawyerForm />} />
         <Route path='/verifyOTP' element={<OtpPage />} />
-        <Route path='/videocalls' element={<VideoCalls/>} />
-        <Route path='/proposals' element={<ViewProposalsPage/>} />
-        <Route path='/alljobs' element={<JobsPage/>} />
-        <Route path='/allmeetings' element={<MeetingsPage/>} />
-        
+        <Route path='/jobpost' element={<JobPost />} />
+        <Route path='/allmeetings' element={<MeetingsPage />} />
+        <Route path='/lawyerdashboard' element={<LawyerDashboard />} />
+        <Route path='/lawyersignup' element={<LawyerSignUpPage />} />
       </Routes>
     </div>
   );

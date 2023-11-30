@@ -28,7 +28,7 @@
 }
 .ReqForm > input:focus,
 .ReqForm > textarea:focus {
-  outline: 2px solid #B2784A;
+  outline: 2px solid #b2784a;
 }
 .ReqForm > button:hover {
   background-color: #ffdc4e;
@@ -39,7 +39,7 @@
 }
 .ContactUsNowReqBForm {
   cursor: pointer;
-  background-color: #B2784A !important;
+  background-color: #b2784a !important;
   color: black !important;
 }
 .CarouselFeeds {

@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import "./DashNavbar.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import HOST from "../../../utils/baseUrl";
-import { UserContext } from "../../../context/Admin_page/userFunction/userState";
-import Gweta from '../../../assets/Gweta.png'
-const DashNavbar = ({ UserData }) => {
+import HOST from "../../utils/baseUrl";
+import { UserContext } from "../../context/Admin_page/userFunction/userState";
+import Gweta from "../../assets/Gweta.png"
+const LawyerDashNav = ({ UserData }) => {
   const [email, setEmail] = useState("User Email");
   const [name, setName] = useState("User Name");
 
@@ -81,4 +80,4 @@ const DashNavbar = ({ UserData }) => {
   );
 };
 
-export default DashNavbar;
+export default LawyerDashNav;

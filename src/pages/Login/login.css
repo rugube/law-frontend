@@ -24,7 +24,7 @@
   height: 100vh;
 }
 .signInBtn {
-  background-color: #B2784A !important;
+  background-color: #b2784a !important;
   width: 100%;
   font-size: 19px;
   border-radius: 9px;
@@ -33,7 +33,7 @@
   padding: 10px 20px;
 }
 .signInBtn:hover {
-  background-color: #EBDACC !important;
+  background-color: #f57e42 !important;
 }
 .loginpage input {
   padding-left: 12px !important;
@@ -50,7 +50,7 @@
 }
 .form-container input:hover,
 .form-container input:focus {
-  border: 1px solid #B2784A !important;
+  border: 1px solid #b2784a !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -150,7 +150,7 @@
 }
 .SocialIcons > div:hover {
   cursor: pointer !important;
-  border: 1px solid #B2784A !important;
+  border: 1px solid #b2784a !important;
 }
 .SocialIcons img {
   margin-right: 5px;
@@ -190,7 +190,7 @@
 
 .InputModalt:focus,
 .InputModalt:hover {
-  border: 1px solid #B2784A !important;
+  border: 1px solid #b2784a !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -206,11 +206,11 @@
 }
 .ant-modal-footer button:hover {
   box-shadow: none !important;
-  color: #EBDACC !important;
-  border-color: #B2784A !important;
+  color: #f57e42 !important;
+  border-color: #b2784a !important;
 }
 .ant-modal-footer .ant-btn-primary {
-  background-color: #B2784A !important;
+  background-color: #b2784a !important;
 }
 .ant-modal-footer .ant-btn-primary:hover {
   color: black !important;

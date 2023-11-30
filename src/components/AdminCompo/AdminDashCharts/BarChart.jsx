@@ -51,7 +51,7 @@ export const data = {
     {
       label: "Clients Appointed",
       data: lawyers.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: "#B2784A",
+      backgroundColor: "#b2784a",
     },
     {
       label: "Meetings Done",

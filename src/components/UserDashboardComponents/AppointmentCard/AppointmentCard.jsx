@@ -16,10 +16,8 @@ const AppointmentCard = ({
   function GetLaywerByEmail() {
     fetch(`${HOST}/lawyer/searchLawyerByEmail?email=${data.lawyerEmail}`)
       .then((data) => data.json())
-      .then((data) => setLawyerDetails(data.data[0]))
-      .catch((error) => console.log(error));
+      .then((data) => setLawyerDetails(data.data[0]));
   }
-
   useEffect(() => {
     GetLaywerByEmail();
   }, [data]);
@@ -38,7 +36,7 @@ const AppointmentCard = ({
       if (data.success) {
         notification(
           "Appointment Cancelled",
-          "Successfully cancelled the appointment"
+          "Succcessfully cancelled the appointment"
         );
         RenderAgain();
       }
@@ -52,14 +50,7 @@ const AppointmentCard = ({
     }
   }
 
-  let starArr = [];
-  if (
-    typeof lawyerDetails.rating === "number" &&
-    lawyerDetails.rating > 0
-  ) {
-    starArr = new Array(lawyerDetails.rating).fill([]);
-  }
-
+  let starArr = new Array(lawyerDetails.rating).fill([]);
   return (
     <div
       className="BigAPCARD"
@@ -96,14 +87,15 @@ const AppointmentCard = ({
               className="AdvThings"
               style={{ color: "grey", fontSize: "12px" }}
             >
-            We appreciate your commitment to making our online meetings productive and efficient.
-            If you have any questions or need further assistance, please don't hesitate to contact us.{" "}
+              Appointments are efficient when they are held with proper meeting
+              hygiene standards. Meeting hygiene consists of organization and
+              efficiency of conversation.{" "}
             </p>
             <br />
             <div>
               <ApoBtns
                 deleteFn={DeleteAppointment}
-                text={"Join Meeting"}
+                text={"Message"}
                 icon={
                   <svg
                     className="opentabicon"

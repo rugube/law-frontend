@@ -5,11 +5,9 @@
   padding: 0px 70px;
   background: none !important;
 }
-
 .MainLogo {
   width: 170px;
 }
-
 .DashNavMenu {
   width: 50%;
   border: none;
@@ -22,7 +20,6 @@
 .opentabicon {
   transform: translateY(3px);
 }
-
 .SecOneMeetLawBtnDASH {
   margin: 10px 13px 10px 6px;
   padding: 5px 15px;
@@ -31,26 +28,19 @@
   border-radius: 50%;
   font-weight: 600;
   font-size: 17px;
-  background-color: #B2784A;
+  background-color: #b2784a;
   color: black;
   transform: translateY(-5px);
-  border: 2px solid #B2784A;
+  border: 2px solid#b2784a;
 }
 
 .SecOneMeetLawBtnDASH:hover {
-  border: 2px solid #EBDACC;
-  background-color: #EBDACC;
+  border: 2px solid#b2784a;
+  background-color: #b2784a;
 }
-
 .logoutarea {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
 
-/* Add styles for active link */
-.DashNavMenu a.active {
-  /* Add your active link styles here */
-  font-weight: bold;
-  color: #007bff; /* Change the color to your desired active link color */
+  align-items: center;
 }

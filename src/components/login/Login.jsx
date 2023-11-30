@@ -102,6 +102,17 @@ const Login = () => {
     window.open(`${HOST}/auth/google`, "_self");
   };
 
+  const renderSignUpLink = () => {
+    if (value === "User Email") {
+      return <Link to="/signup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
+    } else if (value === "Lawyer Email") {
+      return <Link to="/lawyersignup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
+    } else {
+      // For Admin
+      return <Link to="/admin-signup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
+    }
+  };
+
   return (
     <div className="form-container">
       {contextHolder}
@@ -193,11 +204,9 @@ const Login = () => {
           </div>
         </div>
         <p className="signup">
-          Don't have an account?
-          <Link to="/signup" style={{ color: "blue" }}>
-            &nbsp; Sign up
-          </Link>
-        </p>
+        Don't have an account?
+        {renderSignUpLink()}
+      </p>
       </div>
     </div>
   );

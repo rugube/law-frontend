@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./UserProfile.css";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../../../context/Admin_page/userFunction/userState";
+import { UserContext } from "../../context/Admin_page/userFunction/userState";
 
-const UserProfile = ({ UserData }) => {
+const LawyerUserProfile = ({ UserData }) => {
   // const navigate = useNavigate();
 
   const [email, setEmail] = useState("User Email");
@@ -42,23 +41,18 @@ const UserProfile = ({ UserData }) => {
           We Welcome you to our Gweta Rangu, our one-stop shop for all your Legal Services.
           </p>
         </div>
-        <div className="UserProfileRight" data-aos="fade-left">
-          <Link to="/lawyers">
-            <button className="BigBAPBTN">Book an Appointment + </button>
-          </Link>
-        </div>
       </div>
       <center>
         <hr style={{ width: "80%" }} />
       </center>
       <div className="UserProfileSecond">
-        <Link to="/userdashboard">Dashboard</Link>
-        <Link to="/jobpost">Post A Job</Link>
-        <Link to="/">View Proposals</Link>
+        <Link to="/lawyerdashboard">Dashboard</Link>
+        <Link to="/jobpost">Browse Jobs</Link>
+        <Link to="/">Work Completed</Link>
         <Link to="/allmeetings">Meetings</Link>
       </div>
     </div>
   );
 };
 
-export default UserProfile;
+export default LawyerUserProfile;

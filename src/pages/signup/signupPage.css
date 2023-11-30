@@ -44,7 +44,7 @@
 .Signupform input:hover,
 .Signupform input:focus {
   outline: none !important;
-  border: 2px solid #B2784A !important;
+  border: 2px solid #b2784a !important;
   box-shadow: none !important;
 }
 
@@ -55,7 +55,7 @@
   width: 100%;
 }
 .ContinueRegis {
-  background-color: #B2784A !important;
+  background-color: #b2784a !important;
   width: 90%;
   font-size: 19px;
   border-radius: 9px;
@@ -66,10 +66,10 @@
   padding: 10px 20px;
 }
 .ContinueRegis:hover {
-  background-color: #EBDACC !important;
+  background-color: #f57e42 !important;
 }
 .SignInSmol {
-  color: #B2784A;
+  color: #b2784a;
 }
 
 .SocialIcons {
@@ -91,5 +91,5 @@
 }
 .SocialIcons div:hover {
   cursor: pointer;
-  border: 1px solid #B2784A;
+  border: 1px solid #b2784a;
 }

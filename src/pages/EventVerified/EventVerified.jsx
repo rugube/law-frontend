@@ -5,7 +5,6 @@ import { AppointmentContext } from "../../context/appointment/appointmentContext
 import HOST from "../../utils/baseUrl";
 import Loading from "../../components/AdminCompo/Loading";
 import { AuthContext } from "../../context/AuthContext/AuthState";
-import Gweta from '../../assets/Gweta.png'
 
 const EventVerified = () => {
   const navigate = useNavigate();
@@ -82,8 +81,8 @@ const EventVerified = () => {
         <Link to="/">
           <img
             className="Aclabsolute"
-            src={Gweta}
-            alt="Gweta Rangu"
+            src="Images/ACEyellow.png"
+            alt="acelogo"
           />
         </Link>
 
@@ -134,7 +133,7 @@ const EventVerified = () => {
             </button>
             <br />
             <button className="BookAppBtntwo" onClick={handleBook}>
-              Book an Appointtment
+              Book an Appoinetment
             </button>
             <label className="allrightIEIEIEIIEEI">
               © All Copyrights reserved
