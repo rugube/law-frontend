@@ -16,7 +16,7 @@ import AddLawyerForm from './pages/AddForms/AddLawyerForm';
 import BookingSuccess from './pages/bookingSuccess/BookingSuccess';
 import FailedBooking from './pages/failedBooking/FailedBooking';
 import UnAuthenticated from './pages/PageNotFound/UnAuthenticated';
-import JobPost from './pages/Jobs/Jobs';
+import JobPost from './components/Jobs/JobPost';
 import MeetingsPage from './pages/Meetings/meetings';
 import LawyerDashboard from './pages/Lawyer/LawyerDashboard';
 import LawyerSignUpPage from './pages/signup/lawyerSignUp';
