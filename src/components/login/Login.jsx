@@ -99,7 +99,7 @@ const Login = () => {
 
   const google = () => {
     localStorage.clear();
-    window.open(`${HOST}/auth/google`, "_self");
+    window.open(`${HOST}/auth/google/callback`, "_self");
   };
 
   const renderSignUpLink = () => {
