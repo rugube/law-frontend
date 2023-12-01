@@ -104,7 +104,7 @@ const Login = () => {
 
   const renderSignUpLink = () => {
     if (value === "User Email") {
-      return <Link to="/signup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
+      return <Link to="/signup" style={{ color: "blue" }}>&nbsp; Sig up</Link>;
     } else if (value === "Lawyer Email") {
       return <Link to="/lawyersignup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
     } else {
