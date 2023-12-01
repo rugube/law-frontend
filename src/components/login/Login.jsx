@@ -48,7 +48,7 @@ const Login = () => {
         navigate("/userdashboard");
       }, 1000);
     } else {
-      FopenNotification("Invalid Credentials", "Enter valid account details.");
+      FopenNotification("Invalid Credentials", "Enter valid account details bro.");
     }
   };
 
@@ -104,7 +104,7 @@ const Login = () => {
 
   const renderSignUpLink = () => {
     if (value === "User Email") {
-      return <Link to="/signup" style={{ color: "blue" }}>&nbsp; Sig up</Link>;
+      return <Link to="/signup" style={{ color: "blue" }}>&nbsp; <Sign></Sign> up</Link>;
     } else if (value === "Lawyer Email") {
       return <Link to="/lawyersignup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
     } else {
