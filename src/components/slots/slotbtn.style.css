@@ -1,5 +1,5 @@
 .slot-btn{
-    background-color: #B2784A;
+    background-color: #b2784a;
     width: 70%;
     text-align: center;
     padding: 13px;
@@ -15,7 +15,7 @@
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .slot-btn:hover{
-    background: #ebdacc;
+    background: rgba(235, 235, 67, 0.753);
     color: black;
 }
 

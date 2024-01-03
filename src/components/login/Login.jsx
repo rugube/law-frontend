@@ -48,7 +48,7 @@ const Login = () => {
         navigate("/userdashboard");
       }, 1000);
     } else {
-      FopenNotification("Invalid Credentials", "Enter valid account details.");
+      FopenNotification("Invalid Credentials", "Enter valid account details bro.");
     }
   };
 
@@ -99,7 +99,18 @@ const Login = () => {
 
   const google = () => {
     localStorage.clear();
-    window.open(`${HOST}/auth/google`, "_self");
+    window.open(`${HOST}/auth/google/callback`, "_self");
+  };
+
+  const renderSignUpLink = () => {
+    if (value === "User Email") {
+      return <Link to="/signup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
+    } else if (value === "Lawyer Email") {
+      return <Link to="/lawyersignup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
+    } else {
+      // For Admin
+      return <Link to="/admin-signup" style={{ color: "blue" }}>&nbsp; Sign up</Link>;
+    }
   };
 
   return (
@@ -193,11 +204,9 @@ const Login = () => {
           </div>
         </div>
         <p className="signup">
-          Don't have an account?
-          <Link to="/signup" style={{ color: "blue" }}>
-            &nbsp; Sign up
-          </Link>
-        </p>
+        Don't have an account?
+        {renderSignUpLink()}
+      </p>
       </div>
     </div>
   );

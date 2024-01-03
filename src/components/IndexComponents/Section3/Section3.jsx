@@ -48,6 +48,19 @@ const Section3 = () => {
           </div>
           <br />
           <br />
+          <p>
+            <img
+              className="hammersec3"
+              src="Images/IndexPageImages/Section3/hammer.png"
+              alt="xc"
+            />
+            We provide you both civil and criminal lawyers
+          </p>
+          <div className="sec3para">
+            Law and justice are very important parts of any society. Be it
+            developed or developing, A large part of that institution is Lawyers
+            who help provide justice to the citizens.{" "}
+          </div>
         </div>
       </div>
     </div>

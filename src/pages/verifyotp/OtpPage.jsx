@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Gweta from '../../assets/Gweta.png'
 
 import "./otppage.css";
 import HOST from "../../utils/baseUrl";
-import Gweta from '../../assets/Gweta.png'
 const OtpPage = () => {
   const navigate = useNavigate();
   let [one, setOne] = useState("");

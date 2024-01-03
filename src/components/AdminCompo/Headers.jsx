@@ -16,7 +16,7 @@ const Headers = () => {
       <Space>
         <Space>
           <UserOutlined style={{ fontSize: 34, color: "#f9ad00" }} />
-          <h3>Admin</h3>
+          <h3>Mohima Bahadur</h3>
         </Space>
         <FaTh style={{ fontSize: 27, marginLeft: "25px", color: "#f9ad00" }} />
       </Space>

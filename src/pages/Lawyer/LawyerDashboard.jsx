@@ -1,76 +1,126 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from "react";
+import LawyerDashNav from "../../components/lawyers/LawyerDashNav";
+import LawyerUserProfile from "../../components/lawyers/LawyerUserProfile";
+import HOST from "../../utils/baseUrl";
+import { UserContext } from "../../context/Admin_page/userFunction/userState";
+import { useNavigate } from "react-router-dom";
+import { notification } from "antd";
+import { AuthContext } from "../../context/AuthContext/AuthState";
+import Loading from "../../components/AdminCompo/Loading";
 import { Card, Statistic, Row, Col, Button, Badge } from 'antd';
-import { FileTextOutlined, MessageOutlined } from '@ant-design/icons';
-import { AuthContext } from '../../context/AuthContext/AuthState';
-import { useNavigate } from 'react-router-dom';
+import Link from "antd/es/typography/Link";
 
 const LawyerDashboard = () => {
-  const { Auth } = useContext(AuthContext);
-  const [meetingCount, setMeetingCount] = useState(0);
+  const [api, contextHolder] = notification.useNotification();
 
-  useEffect(() => {
-    // Fetch latest meetings here and update meetingCount
-    // Replace this mock data with actual data
-    const latestMeetings = []; // Replace with actual data
-    const count = latestMeetings.length; // Get the count of meetings
-    setMeetingCount(count); // Update the meetingCount state
-  }, []);
+  const { Auth, setAuth } = useContext(AuthContext);
+  const { setUserDetails } = useContext(UserContext);
+  const openNotification = (msg, desc) => {
+    api.success({
+      message: msg,
+      description: desc,
+      placement: "top",
+    });
+  };
+  const FopenNotification = (msg, desc) => {
+    api.error({
+      message: msg,
+      description: desc,
+      placement: "top",
+    });
+  };
 
+  let [UserData, setUserData] = useState({});
   const navigate = useNavigate();
 
+  useEffect(() => {
+    console.log("User data in useEffect:", UserData);
+
+    setTimeout(() => {
+      setAuth((prev) => {
+        if (prev === false) {
+          navigate("/unAuthenticated");
+          return false;
+        }
+        return true;
+      });
+    }, 2000);
+
+    
+    const fetchUserData = async (id) => {
+      try {
+        let res = await fetch(`${HOST}/user/${id}`);
+        let data = await res.json();
+        setUserDetails(data.user);
+        setUserData(data.user);
+        setAuth(true);
+        openNotification("Login Success", "Successfully logged in.");
+      } catch (error) {
+        console.log(error);
+        FopenNotification("Login Failed", "Trouble logging in.");
+      }
+    };
+  
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+  
+    if (params.authsuccess) {
+      fetchUserData(params.userID);
+    }
+  }, [UserData]);
+
+  
+
   return !Auth ? (
-    <div>q
-      <h1 className="dashboard-title">Lawyer Dashboard</h1>
-      <Row gutter={[16, 16]} className="dashboard-cards">
+    <Loading />
+  ) : (
+    <div style={{ padding: '20px' }} >
+      {contextHolder}
+      <LawyerDashNav UserData={UserData} />
+      <LawyerUserProfile UserData={UserData} />
+      <Row gutter={[16, 16]} style={{ marginBottom: '20px' }}>
         <Col xs={24} sm={12} md={8}>
+        <Card
+  title={
+    <Badge style={{ backgroundColor: '#52c41a' }}>
+      Upcoming Meetings
+    </Badge>
+    }
+    style={{ height: '200px', marginTop: '20px' }}
+    extra={
+      <Link to="/allmeetings">
+        <Button type="primary">View Meetings</Button>
+      </Link>
+    }
+  >
+</Card>
+
+        </Col>
+        <Col xs={24} sm={12} md={8} style={{ marginBottom: '20px' }}>
           <Card
-            className="dashboard-card"
-            cover={<FileTextOutlined style={{ fontSize: '64px' }} />}
-            title={
-              <Badge count={meetingCount} style={{ backgroundColor: '#52c41a' }}>
-                New Appointments
-              </Badge>
-            }
-            extra={
-              <Button type="primary">View Appointments</Button>
-            }
+            title="Total Amount Earned"
+            style={{ height: '200px', marginTop: '20px' }}
+            extra={<Button type="primary">View Amount</Button>}
           >
-            {/* Render appointment data */}
+            <Statistic title="Total Amount Earned" value={1000} prefix="$" />
           </Card>
         </Col>
-        <Col xs={24} sm={12} md={8}>
+        <Col xs={24} sm={12} md={8} style={{ marginBottom: '20px' }}>
           <Card
-            className="dashboard-card"
-            title="Cases in Progress"
+            title="Jobs Completed"
+            style={{ height: '200px', marginTop: '20px' }}
             extra={
-              <Button type="primary" onClick={() => navigate('/cases')}>View Cases</Button>
+              <Link to="/alljobs">
+                <Button type="primary">View Jobs</Button>
+              </Link>
             }
           >
-            <Statistic
-              title="Total Cases"
-              value={10} 
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={8}>
-          <Card
-            className="dashboard-card"
-            cover={<MessageOutlined style={{ fontSize: '64px' }} />}
-            title="Client Messages"
-            extra={
-              <Button type="primary" onClick={() => navigate('/messages')}>View Messages</Button>
-            }
-          >
-            <Statistic
-              title="Unread Messages"
-              value={10} 
-            />
+            <Statistic title="Jobs Completed" value={50} />
           </Card>
         </Col>
       </Row>
     </div>
-  ) : (
-    navigate('/login')
   );
 };
 

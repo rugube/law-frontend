@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import "./AddLawyerForm.css";
 import { useNavigate, Redirect, Route, Link } from "react-router-dom";
 import LawyerContext from "../../context/Admin_page/lawyercontext/lawyerContext";
-import Gweta from '../../assets/Gweta.png'
 
 const AddLawyerForm = () => {
   //! >>>> ---------------------------------------------------------------------<<<<
@@ -80,8 +79,8 @@ const AddLawyerForm = () => {
         <img
           className="Aclabsolute"
           style={{ top: "40px", left: "90px" }}
-          src={Gweta}
-          alt="Gweta Rangu"
+          src="Images/ACEyellow.png"
+          alt="acelogo"
         />
       </Link>
       <div className="FirstViewFomer">

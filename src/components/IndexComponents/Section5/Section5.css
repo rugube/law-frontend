@@ -25,7 +25,7 @@
   bottom: 5px;
   width: 100%;
   z-index: -1;
-  background-color: #B2784A;
+  background-color: #b2784a;
 }
 .CheckoutProfile {
   border: none;
@@ -34,6 +34,6 @@
   padding: 2px 3px;
 }
 .CheckoutProfile:hover {
-  color: #B2784A;
+  color: #b2784a;
   background-color: rgb(114, 112, 112);
 }

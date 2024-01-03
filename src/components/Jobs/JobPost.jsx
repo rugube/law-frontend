@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Layout, Card, Form, Input, Select, Button, message } from "antd";
 import axios from "axios"; 
-import { UserContext } from "../../../context/Admin_page/userFunction/userState";
-import HOST from "../../../utils/baseUrl";
-import { AuthContext } from "../../../context/AuthContext/AuthState";
+import { UserContext } from "../../context/Admin_page/userFunction/userState";
+import HOST from "../../utils/baseUrl";
+import { AuthContext } from "../../context/AuthContext/AuthState";
 
 
 const { Content } = Layout;
@@ -19,10 +19,24 @@ const JobPost = () => {
 
   const onFinish = async (values) => {
     setIsPosting(true);
-
+  
+    // Check if authContext is defined and has user property
+    if (!authContext || !authContext.user) {
+      console.error("User context or user data is undefined");
+      setIsPosting(false);
+      return;
+    }
+  
     // Access user ID from AuthContext
     const userId = authContext.user.id;
-
+  
+    // Check if userId is available
+    if (!userId) {
+      console.error("User ID is undefined");
+      setIsPosting(false);
+      return;
+    }
+  
     // Prepare the job data
     const jobData = {
       userId,
@@ -31,11 +45,11 @@ const JobPost = () => {
       budget: values.budget,
       description: values.description,
     };
-
+  
     try {
       // Make an API call to post the job
       const response = await axios.post(`${HOST}/jobs/post`, jobData);
-
+  
       if (response.status === 201) {
         // Job posting successful
         form.resetFields();
@@ -49,9 +63,10 @@ const JobPost = () => {
       console.error("Error posting job:", error);
       message.error("An error occurred while posting the job.");
     }
-
+  
     setIsPosting(false);
   };
+  
 
   return (
     <Content style={{ padding: "24px 50px" }}>

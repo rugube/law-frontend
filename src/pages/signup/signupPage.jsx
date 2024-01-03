@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import HOST from "../../utils/baseUrl";
 import { notification } from "antd";
 import Gweta from '../../assets/Gweta.png'
-import { AuthContext } from "../../context/AuthContext/AuthState";
+
 
 const SignUpPage = () => {
   const [api, contextHolder] = notification.useNotification();
@@ -16,11 +16,6 @@ const SignUpPage = () => {
       description: desc,
       placement: "top",
     });
-  };
-
-  const google = () => {
-    localStorage.clear();
-    window.open(`${HOST}/auth/google`, "_self");
   };
 
   let [name, setName] = useState("");
@@ -76,9 +71,8 @@ const SignUpPage = () => {
             handleSubmit();
           }}
         >
-          <h1 className="RegisterTitle">Register</h1>
           <p style={{ color: "grey", fontSize: "13px" }}>
-            Signup to Gweta Rangu 
+            Signup to Ace Legal Services
           </p>
           <input
             onChange={(event) => {
@@ -141,11 +135,11 @@ const SignUpPage = () => {
 
           <div className="social-message">
             <div className="line">-</div>
-            <p className="message">Login with Google</p>
+            <p className="message">Login with social accounts</p>
             <div className="line">-</div>
           </div>
           <div className="SocialIcons">
-            <div onClick={google}>
+            <div>
               <img
                 style={{ width: "30px" }}
                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"

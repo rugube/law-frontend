@@ -32,7 +32,7 @@ const DetailsComUser = ({ users, deletEele }) => {
               <p>Phone: +9{Math.floor(Math.random() * 10000000000)}</p>
               <p>Email: {el.email}</p>
               <p>Gender: Male</p>
-              <p>Bio : Gweta Rangu User</p>
+              <p>Bio : ACE Legal Services User</p>
               <button className="InfoBtnAdmin">Info</button>
               <button
                 className="RemoveButtonAdmin"

@@ -16,10 +16,6 @@ const Stepss = () => (
         description: "Select A valid Date and Time to book the Slot",
       },
       {
-        title: "Create Meeting",
-        description: "Create A Meeting With The Lawyer",
-      },
-      {
         title: "Payment",
         description: "The Payment of Lawyer & ALS Services",
       },

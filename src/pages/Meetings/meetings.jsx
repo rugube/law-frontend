@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Tabs } from "antd";
-import UserProfile from "./UserProfile/UserProfile";
-import DashNavbar from "./DashNavbar/DashNavbar";
-import AppointmentsArea from "./AppointmentsArea/AppointmentsArea";
+import UserProfile from "../../components/UserDashboardComponents/UserProfile/UserProfile";
+import DashNavbar from "../../components/UserDashboardComponents/DashNavbar/DashNavbar";
+import AppointmentsArea from "../../components/UserDashboardComponents/AppointmentsArea/AppointmentsArea";
 import { UserContext } from "../../context/Admin_page/userFunction/userState";
 
 const { TabPane } = Tabs;
